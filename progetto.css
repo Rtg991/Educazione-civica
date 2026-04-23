@@ -1,0 +1,198 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Inter', sans-serif;
+}
+
+body {
+  background: #050505;
+  color: white;
+  overflow-x: hidden;
+}
+
+/* NAVBAR */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 5%;
+  align-items: center;
+}
+
+.navbar nav a {
+  margin: 0 15px;
+  color: #aaa;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.navbar nav a:hover {
+  color: white;
+}
+
+.logo {
+  font-weight: 800;
+  font-size: 22px;
+}
+
+/* BUTTON */
+.btn {
+  padding: 10px 20px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #ff00cc, #3333ff);
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  transform: scale(1.05);
+}
+
+.outline {
+  background: transparent;
+  border: 1px solid #ff00cc;
+}
+
+/* HERO */
+.hero {
+  height: 90vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+}
+
+.hero h1 {
+  font-size: 60px;
+  font-weight: 800;
+}
+
+.hero span {
+  background: linear-gradient(135deg, #ff00cc, #00f0ff);
+  -webkit-text-fill-color: transparent;
+}
+
+.hero p {
+  margin-top: 20px;
+  color: #888;
+}
+
+.buttons {
+  margin-top: 30px;
+}
+
+/* GLOW EFFECT */
+.glow {
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, #ff00cc55, transparent 70%);
+  top: 20%;
+  left: 50%;
+  transform: translateX(-50%);
+  filter: blur(100px);
+  z-index: -1;
+}
+
+/* FEATURES */
+.features {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  padding: 80px 10%;
+}
+
+.card {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.1);
+  padding: 30px;
+  border-radius: 20px;
+  width: 250px;
+  backdrop-filter: blur(20px);
+  transition: 0.3s;
+}
+
+.paragraph {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.1);
+  padding: 30px;
+  border-radius: 30px;
+  width: auto;
+  backdrop-filter: blur(20px);
+  transition: 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-15px) scale(1.03);
+  border-color: #ff00cc;
+}
+
+.paragraph:hover {
+  transform: translateY(-15px) scale(1.03);
+  border-color: #007fff;
+  transform: scale(1.05);
+  box-shadow: 0 0 25px #007fff;
+}
+
+/* --------------------------------------------------------------------------------------- CSS PER FINALITÀ E PROGETTO ----------------------------------------------------------------------------------------------- */
+.finalità {
+  padding: 80px 10%;
+  display: flex;
+  gap: 50px;
+}
+.descrizione {
+  display: flex;
+  position: fixed;
+  bottom: 0;
+  width: 400%;
+  padding: 50px 45%;
+}
+/* CILINDRO */
+.cylinder-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 80px 0;
+  perspective: 1200px;
+  overflow: hidden;
+  background: radial-gradient(ellipse at center, #007fff33 0%, #00aaff11 40%, transparent 70%);
+  position: relative; /* aggiunge questo */
+}
+
+.cylinder {
+  position: relative;
+  width: 150px;
+  height: 420px;
+  transform-style: preserve-3d;
+}
+
+.cylinder-card {
+  position: absolute;
+  width: 250px;   /* era 150px */
+  height: 350px;
+  top: 0;
+  left: -125px;   /* metà della larghezza per centrare */
+  overflow: hidden;
+  border-radius: 1px 3px 3px 1px;
+  border-left: 3px solid rgba(0,0,0,0.6);
+  box-shadow:
+    -3px 0 6px rgba(0,0,0,0.8),
+    inset -20px 0 40px rgba(0,0,0,0.4),
+    inset 5px 0 10px rgba(255,255,255,0.08);
+}
+
+.cylinder-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+@keyframes rotateCylinder {
+  from { transform: rotateY(0deg); }
+  to   { transform: rotateY(-360deg); }
+}
