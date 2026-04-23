@@ -27,19 +27,25 @@ body {
 .navbar {
   display: flex;
   justify-content: space-between;
-  padding: 20px 5%;
+  padding: 30px 5%;
   align-items: center;
+  gap: 40px;
+}
+
+.navbar nav {
+  display: flex;
+  gap: 20px;
 }
 
 .navbar nav a {
-  margin: 0 15px;
   color: #aaa;
   text-decoration: none;
   transition: 0.3s;
+  font-weight: 500;
 }
 
 .navbar nav a:hover {
-  color: white;
+  color: rgb(255, 0, 217);
 }
 
 .logo {
@@ -60,6 +66,7 @@ body {
 
 .btn:hover {
   transform: scale(1.05);
+  box-shadow: 0 0 25px  rgb(255, 0, 217);
 }
 
 .outline {
@@ -83,6 +90,7 @@ body {
 }
 
 .hero span {
+  color: rgb(255, 0, 217);
   background: linear-gradient(135deg, #ff00cc, #00f0ff);
   -webkit-text-fill-color: transparent;
 }
@@ -156,6 +164,37 @@ body {
   border-color: #007fff;
   transform: scale(1.05);
   box-shadow: 0 0 25px #007fff;
+}
+
+/*bottone per lo scopri*/
+.btnt {
+  padding: 10px 20px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #0077ff, #00ffaa);
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.btnt:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 25px rgba(0, 255, 170, 0.4);
+}
+
+.cardt {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.1);
+  padding: 30px;
+  border-radius: 20px;
+  width: 250px;
+  backdrop-filter: blur(20px);
+  transition: 0.3s;
+}
+
+.cardt:hover {
+  transform: translateY(-15px) scale(1.03);
+  border-color: #0077ff;
 }
 
 /* --------------------------------------------------------------------------------------- CSS PER FINALITÀ E PROGETTO ----------------------------------------------------------------------------------------------- */
