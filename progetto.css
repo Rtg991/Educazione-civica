@@ -87,12 +87,8 @@ body {
 .hero h1 {
   font-size: 60px;
   font-weight: 800;
-}
-
-.hero span {
   color: rgb(255, 0, 217);
   background: linear-gradient(135deg, #ff00cc, #00f0ff);
-  -webkit-text-fill-color: transparent;
 }
 
 .hero p {
