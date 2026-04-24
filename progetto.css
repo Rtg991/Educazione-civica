@@ -62,6 +62,8 @@ body {
   text-decoration: none;
   font-weight: 600;
   transition: 0.3s;
+  position: relative;
+  align-items: center;
 }
 
 .btn:hover {
