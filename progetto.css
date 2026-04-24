@@ -84,6 +84,12 @@ body {
   position: relative;
 }
 
+.hero-content h1{
+  font-size: 60px;
+  font-weight: 800;
+  color: rgb(255, 0, 217);
+}
+
 .hero h1 {
   font-size: 60px;
   font-weight: 800;
