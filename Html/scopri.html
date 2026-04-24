@@ -5,18 +5,30 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>CSA MODERN</title>
   <style>
-    * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Inter', sans-serif;
-}
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+  }
 
-body {
-  background: #020a08; /* Uno sfondo nero con una punta di verde foresta */
-  color: #e0e0e0;
-  overflow-x: hidden;
-}
+  /* Formattazione sito per PC */
+  .container {
+    width: 1200px;
+  }
+
+  /* Formattazione sito per dispositivi mobili */
+  @media (max-width: 768px) {
+    .container {
+      width: 100%;
+    }
+  }
+
+  body {
+    background: #020a08; /* Uno sfondo nero con una punta di verde foresta */
+    color: #e0e0e0;
+    overflow-x: hidden;
+  }
 
 /* NAVBAR */
 .navbar {
@@ -171,8 +183,8 @@ footer {
 <header class="navbar">
   <div class="logo">CSA MODERN</div>
   <nav>
-    <a href="sostenibilità.html">Home</a>
-    <a href="finalità.html">Finalità e Progetto</a>
+    <a href="sostenibilita.html">Home</a>
+    <a href="finalita.html">Finalità e Progetto</a>
   </nav>
 </header>
 

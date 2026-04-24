@@ -1,5 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap');
 
+/* Formattazione sito per PC */
+.container {
+  width: 1200px;
+}
+
+/* Formattazione sito per dispositivi mobili */
+@media (max-width: 768px) {
+  .container {
+    width: 100%;
+  }
+}
+
 * {
   margin: 0;
   padding: 0;
