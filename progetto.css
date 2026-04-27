@@ -273,7 +273,7 @@ body {
 .btnf {
   padding: 10px 20px;
   border-radius: 10px;
-  background: linear-gradient(135deg, #ff00cc, #00008B);
+  background: linear-gradient(135deg, #0000ff, #00008B);
   color: white;
   text-decoration: none;
   font-weight: 600;
@@ -284,5 +284,5 @@ body {
 
 .btnf:hover {
   transform: scale(1.05);
-  box-shadow: 0 0 25px  rgb(255, 0, 217);
+  box-shadow: 0 0 25px  rgb(0, 0, 255);
 }
