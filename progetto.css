@@ -272,7 +272,7 @@ body {
 .btns {
   padding: 10px 20px;
   border-radius: 10px;
-  background: #3333ff;
+  background: linear-gradient(135deg, #0077ff, #0077ff);
   color: white;
   text-decoration: none;
   font-weight: 600;
