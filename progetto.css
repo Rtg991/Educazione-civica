@@ -227,6 +227,23 @@ body {
   border-color: #0000ff;
 }
 
+.btnfs {
+  padding: 10px 20px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #1e90ff, #00008b);
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  transition: 0.3s;
+  position: relative;
+  align-items: center;
+}
+
+.btnfs:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 25px  #fff8dc;
+}
+
 /* --------------------------------------------------------------------------------------- CSS PER FINALITÀ E PROGETTO ----------------------------------------------------------------------------------------------- */
 .finalità {
   padding: 80px 10%;
