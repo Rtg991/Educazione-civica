@@ -20,7 +20,7 @@
 }
 
 body {
-  background: linear-gradient(135deg, #0000ff, #3333ff);
+  background: linear-gradient(135deg, #008b8b, #00008b);
   color: white;
   overflow-x: hidden;
 }
