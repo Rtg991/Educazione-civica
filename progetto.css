@@ -212,6 +212,21 @@ body {
   border-color: #0077ff;
 }
 
+.cardf {
+  background: rgba(0,0,255,0.03);
+  border: 1px solid rgba(255,255,255,0.1);
+  padding: 30px;
+  border-radius: 20px;
+  width: 250px;
+  backdrop-filter: blur(20px);
+  transition: 0.3s;
+}
+
+.cardf:hover {
+  transform: translateY(-15px) scale(1.03);
+  border-color: #0077ff;
+}
+
 /* --------------------------------------------------------------------------------------- CSS PER FINALITÀ E PROGETTO ----------------------------------------------------------------------------------------------- */
 .finalità {
   padding: 80px 10%;
