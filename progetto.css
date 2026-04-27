@@ -244,6 +244,24 @@ body {
   box-shadow: 0 0 25px  #fff8dc;
 }
 
+.btnc {
+  padding: 10px 20px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #a9a9a9, #dc143c);
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  transition: 0.3s;
+  position: relative;
+  align-items: center;
+}
+
+.btnc:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 25px  #fff8dc;
+}
+
+
 /* --------------------------------------------------------------------------------------- CSS PER FINALITÀ E PROGETTO ----------------------------------------------------------------------------------------------- */
 .finalità {
   padding: 80px 10%;
