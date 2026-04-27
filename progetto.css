@@ -273,7 +273,7 @@ body {
 .btnf {
   padding: 10px 20px;
   border-radius: 10px;
-  background: linear-gradient(135deg, #0000ff, #00008B);
+  background: #0000ff;
   color: white;
   text-decoration: none;
   font-weight: 600;
