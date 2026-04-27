@@ -185,7 +185,7 @@ body {
 .btnt {
   padding: 10px 20px;
   border-radius: 10px;
-  background: linear-gradient(135deg, #0077ff, #00ffaa);
+  background: linear-gradient(135deg, #000080, #228b22);
   color: white;
   text-decoration: none;
   font-weight: 600;
