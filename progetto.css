@@ -269,6 +269,12 @@ body {
   from { transform: rotateY(0deg); }
   to   { transform: rotateY(-360deg); }
 }
+
+.buttonss {
+  margin-top: 30px;
+}
+
+
 .btns {
   padding: 10px 20px;
   border-radius: 10px;
