@@ -149,7 +149,7 @@ body {
   padding: 80px 10%;
 }
 
-.card {
+.cardc {
   background: rgba(255,255,255,0.03);
   border: 1px solid rgba(255,255,255,0.1);
   padding: 30px;
@@ -169,7 +169,7 @@ body {
   transition: 0.3s;
 }
 
-.card:hover {
+.cardc:hover {
   transform: translateY(-15px) scale(1.03);
   border-color: #ff00cc;
 }
@@ -258,7 +258,7 @@ body {
 
 .btnc:hover {
   transform: scale(1.05);
-  box-shadow: 0 0 25px  #006400;
+  box-shadow: 0 0 25px  #fff8dc;
 }
 
 
