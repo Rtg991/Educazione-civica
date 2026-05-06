@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<!DOCTYPE html>
 <html lang="it">
 <head>
   <meta charset="UTF-8">
   <title>Materie Scolastiche</title>
   <link rel="stylesheet" href="../progetto.css">
+
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -15,113 +15,59 @@
       color: #333;
     }
 
-  .navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 30px 8%;
-    background: rgba(2, 10, 8, 0.8);
-    backdrop-filter: blur(10px);
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-  }
+    /* NAVBAR UGUALE AL BODY */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 30px 8%;
+      background: linear-gradient(135deg, #228b22, #00008b);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
 
     .navbar nav {
-  display: flex;
-  gap: 30px;
-}
+      display: flex;
+      gap: 30px;
+    }
 
-.navbar nav a {
-  color: #8fa19e;
-  text-decoration: none;
-  font-weight: 500;
-  transition: 0.3s;
-}
+    .navbar nav a {
+      color: #8fa19e;
+      text-decoration: none;
+      font-weight: 500;
+      transition: 0.3s;
+    }
 
-.navbar nav a:hover {
-  color: #00ffaa; /* Verde Neon */
-  text-shadow: 0 0 10px rgba(0, 255, 170, 0.5);
-}
+    .navbar nav a:hover {
+      color: #00ffaa;
+      text-shadow: 0 0 10px rgba(0, 255, 170, 0.5);
+    }
 
-.logo {
-  font-weight: 800;
-  font-size: 24px;
-  color: #fff;
-  letter-spacing: 1px;
-}
+    .logo {
+      font-weight: 800;
+      font-size: 24px;
+      color: #fff;
+      letter-spacing: 1px;
+    }
 
-/* BUTTON TERRA (Verde -> Blu) */
-.btn {
-  padding: 12px 25px;
-  border-radius: 50px; /* Più arrotondato per un look "organic" */
-  background: linear-gradient(135deg, #00ffaa, #0077ff);
-  color: #020a08;
-  text-decoration: none;
-  font-weight: 700;
-  transition: 0.4s;
-  border: none;
-}
+    .btn {
+      padding: 12px 25px;
+      border-radius: 50px;
+      background: linear-gradient(135deg, #00ffaa, #0077ff);
+      color: #020a08;
+      text-decoration: none;
+      font-weight: 700;
+      transition: 0.4s;
+      border: none;
+    }
 
-.btn:hover {
-  transform: scale(1.05);
-  box-shadow: 0 0 25px rgba(0, 255, 170, 0.4);
-  filter: brightness(1.1);
-}
+    .btn:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 25px rgba(0, 255, 170, 0.4);
+      filter: brightness(1.1);
+    }
 
-.outline {
-  background: transparent;
-  border: 1px solid #ff00cc;
-}
-
-    /* HERO SECTION */
-.hero {
-  height: 100vh;
-  display: flex;
-  align-items: flex-start; /* Sposta il contenuto all'inizio (in alto) */
-  justify-content: center;
-  text-align: center;
-  position: relative;
-  padding-top: 30px;      /* Aggiungi un po' di spazio dal bordo superiore */
-}
-
-.hero h1 {
-  font-size: clamp(40px, 8vw, 75px);
-  font-weight: 550;
-  letter-spacing: -2px;
-  margin-top: 0;        /* Regola questo per posizionarlo con precisione */
-}
-
-
-.hero span {
-  color: #00ffaa;
-}
-
-
-/* GLOW EFFECT (Verde Acqua) */
-.glow {
-  position: absolute;
-  width: 600px;
-  height: 600px;
-  background: radial-gradient(circle, rgba(0, 255, 170, 0.15), transparent 70%);
-  top: 30%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  filter: blur(120px);
-  z-index: -1;
-}
-
-/* NASCONDI SCROLLBAR */
-::-webkit-scrollbar {
-  display: none;
-}
-
-
-* {
-  scrollbar-width: none;
-}
-
-    
     h1 {
       margin: 20px;
       color: white;
@@ -178,17 +124,20 @@
     }
   </style>
 </head>
+
 <body>
+
   <header class="navbar">
-            <div class="logo">CSA MODERN</div>
-            <nav>
-                <a href="sostenibilita.html">Home</a>
-                <a href="finalita.html">Finalità e Progetto</a>
-            </nav>
-            <div class="buttons">
-                <a href="scopri.html" class="btnf">Scopri</a>
-            </div>
-        </header>
+    <div class="logo">CSA MODERN</div>
+    <nav>
+      <a href="sostenibilita.html">Home</a>
+      <a href="finalita.html">Finalità e Progetto</a>
+    </nav>
+    <div class="buttons">
+      <a href="scopri.html" class="btn">Scopri</a>
+    </div>
+  </header>
+
   <div class="container">
 
     <div class="card">
@@ -205,7 +154,7 @@
 
     <div class="card">
       <img src="https://via.placeholder.com/200x120?text=Inglese">
-      <h3>Renawable energy sources</h3>
+      <h3>Renewable energy sources</h3>
       <button onclick="mostra('Inglese')">Apri</button>
     </div>
 
@@ -235,7 +184,7 @@
 
     <div class="card">
       <img src="https://via.placeholder.com/200x120?text=Telecomunicazioni">
-      <h3>fonti rinnovabili - impianti fotovoltaici</h3>
+      <h3>Fonti rinnovabili - impianti fotovoltaici</h3>
       <button onclick="mostra('Telecomunicazioni')">Apri</button>
     </div>
 
