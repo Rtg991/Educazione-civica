@@ -1,1 +1,138 @@
 <!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <title>Materie Scolastiche</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #4facfe, #00f2fe);
+      margin: 0;
+      padding: 0;
+      text-align: center;
+      color: #333;
+    }
+
+    h1 {
+      margin: 20px;
+      color: white;
+    }
+
+    .container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      padding: 20px;
+    }
+
+    .card {
+      background: white;
+      border-radius: 15px;
+      width: 200px;
+      padding: 15px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .card:hover {
+      transform: scale(1.05);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+    }
+
+    .card img {
+      width: 100%;
+      border-radius: 10px;
+    }
+
+    .card button {
+      margin-top: 10px;
+      padding: 10px;
+      border: none;
+      border-radius: 10px;
+      background: #4facfe;
+      color: white;
+      cursor: pointer;
+      font-weight: bold;
+      transition: background 0.3s;
+    }
+
+    .card button:hover {
+      background: #0077ff;
+    }
+
+    #output {
+      margin-top: 20px;
+      font-size: 20px;
+      color: white;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Le Materie</h1>
+
+  <div class="container">
+
+    <div class="card">
+      <img src="https://via.placeholder.com/200x120?text=Italiano+Storia">
+      <h3>Italiano - Storia</h3>
+      <button onclick="mostra('Italiano - Storia')">Apri</button>
+    </div>
+
+    <div class="card">
+      <img src="https://via.placeholder.com/200x120?text=Matematica">
+      <h3>Matematica</h3>
+      <button onclick="mostra('Matematica')">Apri</button>
+    </div>
+
+    <div class="card">
+      <img src="https://via.placeholder.com/200x120?text=Inglese">
+      <h3>Inglese</h3>
+      <button onclick="mostra('Inglese')">Apri</button>
+    </div>
+
+    <div class="card">
+      <img src="https://via.placeholder.com/200x120?text=Ed.+Fisica">
+      <h3>Ed. Fisica</h3>
+      <button onclick="mostra('Educazione Fisica')">Apri</button>
+    </div>
+
+    <div class="card">
+      <img src="https://via.placeholder.com/200x120?text=TPSIT">
+      <h3>TPSIT</h3>
+      <button onclick="mostra('TPSIT')">Apri</button>
+    </div>
+
+    <div class="card">
+      <img src="https://via.placeholder.com/200x120?text=Sistemi+e+Reti">
+      <h3>Sistemi e Reti</h3>
+      <button onclick="mostra('Sistemi e Reti')">Apri</button>
+    </div>
+
+    <div class="card">
+      <img src="https://via.placeholder.com/200x120?text=Informatica">
+      <h3>Informatica</h3>
+      <button onclick="mostra('Informatica')">Apri</button>
+    </div>
+
+    <div class="card">
+      <img src="https://via.placeholder.com/200x120?text=Telecomunicazioni">
+      <h3>Telecomunicazioni</h3>
+      <button onclick="mostra('Telecomunicazioni')">Apri</button>
+    </div>
+
+  </div>
+
+  <div id="output"></div>
+
+  <script>
+    function mostra(materia) {
+      document.getElementById("output").innerText = "Hai selezionato: " + materia;
+    }
+  </script>
+
+</body>
+</html>
