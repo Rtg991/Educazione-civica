@@ -1,200 +1,160 @@
+Ecco il codice aggiornato. Ho ripulito gli stili ridondanti, impostato tutto il testo su bianco e rimosso il badge dell'anno scolastico. Ho anche aggiunto un effetto "vetro" al contenitore per far risaltare il paragrafo sullo sfondo colorato.
+
+HTML
 <!DOCTYPE html>
 <html lang="it">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../progetto.css">
     <title>Presentazione Classe 4F - ITI G. Ferraris</title>
     <style>
-        /* Reset e Font */
+        /* Reset e Font Base */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
         }
 
-        /* Sfondo Animato */
-         body {
-      font-family: Arial, sans-serif;
-      background: linear-gradient(135deg, #228b22, #00008b);
-      margin: 0;
-      padding: 0;
-      text-align: center;
-      color: #333;
-    }
+        /* Sfondo con gradiente fluido */
+        body {
+            background: linear-gradient(135deg, #228b22, #00008b);
+            background-size: 400% 400%;
+            animation: gradientMove 10s ease infinite;
+            min-height: 100vh;
+            color: white; /* Forza tutto il testo a bianco */
+            display: flex;
+            flex-direction: column;
+        }
 
-    /* NAVBAR UGUALE AL BODY */
-    .navbar {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 30px 8%;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-    }
-
-    .navbar nav {
-      display: flex;
-      gap: 30px;
-    }
-
-    .navbar nav a {
-      color: #8fa19e;
-      text-decoration: none;
-      font-weight: 500;
-      transition: 0.3s;
-    }
-
-    .navbar nav a:hover {
-      color: #00ffaa;
-      text-shadow: 0 0 10px rgba(0, 255, 170, 0.5);
-    }
-
-    .logo {
-      font-weight: 800;
-      font-size: 24px;
-      color: #fff;
-      letter-spacing: 1px;
-    }
-
-    .btn {
-      padding: 12px 25px;
-      border-radius: 50px;
-      background: linear-gradient(135deg, #00ffaa, #0077ff);
-      color: #020a08;
-      text-decoration: none;
-      font-weight: 700;
-      transition: 0.4s;
-      border: none;
-    }
-
-    .btn:hover {
-      transform: scale(1.05);
-      box-shadow: 0 0 25px rgba(0, 255, 170, 0.4);
-      filter: brightness(1.1);
-    }
-
-    h1 {
-      margin: 20px;
-      color: white;
-    }
-
-    .container {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 20px;
-      padding: 20px;
-    }
-
-    .card {
-      background: white;
-      border-radius: 15px;
-      width: 200px;
-      padding: 15px;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-      transition: transform 0.3s, box-shadow 0.3s;
-    }
-
-    .card:hover {
-      transform: scale(1.05);
-      box-shadow: 0 10px 25px rgba(0,0,0,0.3);
-    }
-
-    .card img {
-      width: 100%;
-      border-radius: 10px;
-    }
-
-    .card button {
-      margin-top: 10px;
-      padding: 10px;
-      border: none;
-      border-radius: 10px;
-      background: #4facfe;
-      color: white;
-      cursor: pointer;
-      font-weight: bold;
-      transition: background 0.3s;
-    }
-
-    .card button:hover {
-      background: #0077ff;
-    }
-
-    #output {
-      margin-top: 20px;
-      font-size: 20px;
-      color: white;
-      font-weight: bold;
-    }
-
-        @keyframes gradient {
+        @keyframes gradientMove {
             0% { background-position: 0% 50%; }
             50% { background-position: 100% 50%; }
             100% { background-position: 0% 50%; }
         }
 
-        /* Contenitore Card */
-        
+        /* NAVBAR */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 30px 8%;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: rgba(0, 0, 0, 0.1); /* Leggera ombra per visibilità */
+            backdrop-filter: blur(5px);
+        }
 
-        /* Paragrafo stilizzato */
-        .info-text {
+        .logo {
+            font-weight: 800;
+            font-size: 24px;
+            letter-spacing: 1px;
             color: white;
-            font-size: 1.2rem;
-            line-height: 1.6;
-            font-weight: 300;
         }
 
-        /* Evidenziazione nomi e scuola */
-        .highlight {
-            font-weight: 600;
-            color: #fff;
-            border-bottom: 2px solid #23d5ab;
-            padding-bottom: 2px;
+        .navbar nav {
+            display: flex;
+            gap: 30px;
         }
 
-        /* Footer / Badge */
-        .badge {
-            margin-top: 30px;
-            display: inline-block;
-            background: white;
-            color: #e73c7e;
-            padding: 8px 20px;
+        .navbar nav a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            font-weight: 500;
+            transition: 0.3s;
+        }
+
+        .navbar nav a:hover {
+            color: #00ffaa;
+            text-shadow: 0 0 10px rgba(0, 255, 170, 0.5);
+        }
+
+        .btn {
+            padding: 12px 25px;
             border-radius: 50px;
-            font-weight: bold;
-            font-size: 0.9rem;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            background: linear-gradient(135deg, #00ffaa, #0077ff);
+            color: #020a08;
+            text-decoration: none;
+            font-weight: 700;
+            transition: 0.4s;
+            border: none;
         }
+
+        .btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 25px rgba(0, 255, 170, 0.4);
+        }
+
+        /* CONTENITORE CENTRALE */
+        .main-content {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 40px;
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            padding: 50px;
+            max-width: 800px;
+            text-align: center;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Testo nel paragrafo */
+        .paragraph {
+            font-size: 1.5rem;
+            line-height: 1.8;
+            font-weight: 300;
+            color: white; /* Testo bianco */
+        }
+
+        .highlight {
+            font-weight: 700;
+            color: #00ffaa; /* Un tocco di colore per i nomi, o "white" se vuoi tutto identico */
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        strong {
+            font-weight: 700;
+            color: white;
+        }
+
     </style>
 </head>
 <body>
+
     <header class="navbar">
-    <div class="logo">CSA MODERN</div>
-    <nav>
-      <a href="sostenibilita.html">Home</a>
-      <a href="finalita.html">Finalità e Progetto</a>
-      <a href="ChiSiamo.html">Chi siamo</a>
-    </nav>
-    <div class="buttons">
-      <a href="scopri.html" class="btn">Scopri</a>
-    </div>
-  </header>
+        <div class="logo">CSA MODERN</div>
+        <nav>
+            <a href="sostenibilita.html">Home</a>
+            <a href="finalita.html">Finalità e Progetto</a>
+            <a href="ChiSiamo.html">Chi siamo</a>
+        </nav>
+        <div class="buttons">
+            <a href="scopri.html" class="btn">Scopri</a>
+        </div>
+    </header>
 
-    <div class="container">
-        <p class="paragraph">
-            Siamo gli alunni <span class="highlight">Antoci Giuseppe</span>, 
-            <span class="highlight">Chessari Luca</span> e 
-            <span class="highlight">Scollo Daniele</span> 
-            della classe <span class="highlight">4F</span> 
-            dell'istituto tecnico industriale <br>
-            <strong>"Galileo Ferraris" di Ragusa</strong>.
-        </p>
-
-        <div class="badge">A.S. 2025/2026</div>
-    </div>
+    <main class="main-content">
+        <div class="glass-card">
+            <p class="paragraph">
+                Siamo gli alunni <span class="highlight">Antoci Giuseppe</span>, 
+                <span class="highlight">Chessari Luca</span> e 
+                <span class="highlight">Scollo Daniele</span> 
+                della classe <span class="highlight">4F</span> 
+                dell'istituto tecnico industriale <br>
+                <strong>"Galileo Ferraris" di Ragusa</strong>.
+            </p>
+        </div>
+    </main>
 
 </body>
 </html>
