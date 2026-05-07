@@ -9,7 +9,7 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', sans-serif;
+            font-family: 'Segoe UI', Arial, sans-serif;
         }
 
         body {
@@ -29,7 +29,7 @@
             padding: 30px 8%;
         }
 
-        .logo { font-weight: 800; font-size: 24px; }
+        .logo { font-weight: 800; font-size: 24px; color: white; }
 
         .navbar nav { display: flex; gap: 30px; }
 
@@ -49,53 +49,80 @@
             color: #020a08;
             text-decoration: none;
             font-weight: 700;
+            transition: 0.4s;
         }
 
-        /* CONTENITORE CENTRALE */
+        /* CONTENITORE PRINCIPALE */
         .main-content {
             flex: 1;
             display: flex;
             justify-content: center;
             align-items: center;
-            padding: 20px;
+            padding: 40px 20px;
         }
 
-        /* IL PARAGRAFO CON IL BORDO DELLO SCREENSHOT */
-        .paragraph {
-            font-size: 1.6rem;
-            line-height: 1.8;
-            max-width: 850px;
-            padding: 40px;
-            color: white;
-            position: relative;
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 20px;
+        /* IL PARAGRAFO TRASPARENTE CON BORDO NEON */
+        .card-presentazione {
+            max-width: 900px;
+            padding: 60px 40px;
+            border-radius: 25px;
             
-            /* BORDO GRADIENTE (come in foto) */
-            border: 3px solid transparent;
-            background-image: linear-gradient(rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.05)), 
-                              linear-gradient(to right, #00d2ff, #3a7bd5);
+            /* Sfondo rimosso (trasparente) */
+            background: transparent; 
+            
+            /* Bordo Gradiente (Stile Screenshot) */
+            border: 3.5px solid transparent;
+            background-image: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0)), 
+                              linear-gradient(135deg, #00f2fe, #4facfe, #0077ff);
             background-origin: border-box;
             background-clip: padding-box, border-box;
 
-            /* OMBRA ESTERNA (GLOW) */
-            box-shadow: 0 0 15px rgba(58, 123, 213, 0.4);
+            /* Effetto Glow Esterno */
+            box-shadow: 0 0 20px rgba(79, 172, 254, 0.4);
             
-            transition: all 0.4s ease;
+            transition: all 0.5s ease;
         }
 
-        /* Effetto Hover per accentuare l'illuminazione */
-        .paragraph:hover {
-            box-shadow: 0 0 30px rgba(0, 210, 255, 0.7);
-            transform: scale(1.01);
+        .card-presentazione:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 0 40px rgba(0, 242, 254, 0.6);
+            /* Al passaggio del mouse aggiungiamo un velo quasi invisibile per leggibilità */
+            background: rgba(255, 255, 255, 0.03); 
         }
 
-        .highlight { font-weight: 700; }
-        
-        strong {
-            display: block;
-            margin-top: 15px;
+        /* Testo Riordinato */
+        .intro {
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 20px;
+            opacity: 0.8;
+        }
+
+        .nomi {
+            font-size: 2.2rem;
+            font-weight: 800;
+            margin-bottom: 25px;
+            line-height: 1.2;
+            color: #fff;
+        }
+
+        .dettagli {
+            font-size: 1.4rem;
+            font-weight: 300;
+            margin-bottom: 10px;
+        }
+
+        .istituto {
             font-size: 1.8rem;
+            font-weight: 700;
+            margin-top: 15px;
+            color: #fff;
+        }
+
+        .highlight-accent {
+            color: #00ffaa;
+            font-weight: 600;
         }
     </style>
 </head>
@@ -114,14 +141,22 @@
     </header>
 
     <main class="main-content">
-        <p class="paragraph">
-            Siamo gli alunni <span class="highlight">Antoci Giuseppe</span>, 
-            <span class="highlight">Chessari Luca</span> e 
-            <span class="highlight">Scollo Daniele</span> 
-            della classe <span class="highlight">4F</span> 
-            dell'istituto tecnico industriale 
-            <strong>"Galileo Ferraris" di Ragusa</strong>.
-        </p>
+        <div class="card-presentazione">
+            <p class="intro">Team di Sviluppo</p>
+            
+            <p class="nomi">
+                Antoci Giuseppe • Chessari Luca • Scollo Daniele
+            </p>
+
+            <p class="dettagli">
+                Classe <span class="highlight-accent">4F</span>
+            </p>
+
+            <p class="istituto">
+                Istituto Tecnico Industriale <br>
+                <span class="highlight-accent">"Galileo Ferraris"</span> di Ragusa
+            </p>
+        </div>
     </main>
 
 </body>
