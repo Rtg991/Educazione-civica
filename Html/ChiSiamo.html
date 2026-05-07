@@ -77,25 +77,27 @@
             padding: 20px;
         }
 
-        /* PARAGRAFO CENTRATO CON BORDO CHE SI ILLUMINA */
+        /* PARAGRAFO CON BORDO SEMPRE VISIBILE */
         .paragraph {
             font-size: 1.6rem;
             line-height: 1.8;
             max-width: 850px;
             padding: 40px;
             color: white;
-            border: 2px solid transparent; /* Bordo invisibile di base */
+            /* Modificato: da transparent a bianco semi-trasparente */
+            border: 2px solid rgba(255, 255, 255, 0.5); 
             border-radius: 15px;
-            transition: all 0.5s ease;
+            transition: all 0.4s ease-in-out;
             cursor: default;
+            background: rgba(255, 255, 255, 0.02); /* Leggerissimo sfondo per dare corpo */
         }
 
-        /* Effetto illuminazione al passaggio del mouse */
+        /* Effetto quando passi con il mouse */
         .paragraph:hover {
-            border-color: #00ffaa;
-            box-shadow: 0 0 20px rgba(0, 255, 170, 0.6);
-            transform: scale(1.02);
-            background: rgba(255, 255, 255, 0.05); /* Leggero riflesso interno */
+            border-color: #00ffaa; /* Il bordo diventa verde acqua */
+            box-shadow: 0 0 25px rgba(0, 255, 170, 0.5);
+            transform: translateY(-5px); /* Leggero sollevamento */
+            background: rgba(255, 255, 255, 0.08);
         }
 
         .highlight {
