@@ -3,17 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Presentazione Classe 4F - ITI G. Ferraris</title>
+    <title>Chi Siamo - ITI G. Ferraris</title>
     <style>
-        /* Reset base */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Segoe UI', sans-serif;
         }
 
-        /* Sfondo originale statico */
         body {
             background: linear-gradient(135deg, #228b22, #00008b);
             min-height: 100vh;
@@ -29,32 +27,20 @@
             justify-content: space-between;
             align-items: center;
             padding: 30px 8%;
-            width: 100%;
         }
 
-        .logo {
-            font-weight: 800;
-            font-size: 24px;
-            letter-spacing: 1px;
-        }
+        .logo { font-weight: 800; font-size: 24px; }
 
-        .navbar nav {
-            display: flex;
-            gap: 30px;
-        }
+        .navbar nav { display: flex; gap: 30px; }
 
         .navbar nav a {
             color: white;
             text-decoration: none;
-            font-weight: 500;
-            transition: 0.3s;
             opacity: 0.8;
+            transition: 0.3s;
         }
 
-        .navbar nav a:hover {
-            opacity: 1;
-            color: #00ffaa;
-        }
+        .navbar nav a:hover { opacity: 1; color: #00ffaa; }
 
         .btn {
             padding: 12px 25px;
@@ -63,9 +49,6 @@
             color: #020a08;
             text-decoration: none;
             font-weight: 700;
-            transition: 0.4s;
-            border: none;
-            display: inline-block;
         }
 
         /* CONTENITORE CENTRALE */
@@ -77,36 +60,41 @@
             padding: 20px;
         }
 
-        /* PARAGRAFO CON BORDO SEMPRE VISIBILE */
+        /* IL PARAGRAFO CON IL BORDO DELLO SCREENSHOT */
         .paragraph {
             font-size: 1.6rem;
             line-height: 1.8;
             max-width: 850px;
             padding: 40px;
             color: white;
-            /* Modificato: da transparent a bianco semi-trasparente */
-            border: 2px solid rgba(255, 255, 255, 0.5); 
-            border-radius: 15px;
-            transition: all 0.4s ease-in-out;
-            cursor: default;
-            background: rgba(255, 255, 255, 0.02); /* Leggerissimo sfondo per dare corpo */
+            position: relative;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            
+            /* BORDO GRADIENTE (come in foto) */
+            border: 3px solid transparent;
+            background-image: linear-gradient(rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.05)), 
+                              linear-gradient(to right, #00d2ff, #3a7bd5);
+            background-origin: border-box;
+            background-clip: padding-box, border-box;
+
+            /* OMBRA ESTERNA (GLOW) */
+            box-shadow: 0 0 15px rgba(58, 123, 213, 0.4);
+            
+            transition: all 0.4s ease;
         }
 
-        /* Effetto quando passi con il mouse */
+        /* Effetto Hover per accentuare l'illuminazione */
         .paragraph:hover {
-            border-color: #00ffaa; /* Il bordo diventa verde acqua */
-            box-shadow: 0 0 25px rgba(0, 255, 170, 0.5);
-            transform: translateY(-5px); /* Leggero sollevamento */
-            background: rgba(255, 255, 255, 0.08);
+            box-shadow: 0 0 30px rgba(0, 210, 255, 0.7);
+            transform: scale(1.01);
         }
 
-        .highlight {
-            font-weight: 700;
-        }
-
+        .highlight { font-weight: 700; }
+        
         strong {
             display: block;
-            margin-top: 10px;
+            margin-top: 15px;
             font-size: 1.8rem;
         }
     </style>
