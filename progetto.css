@@ -209,7 +209,7 @@ body {
 
 .cardt:hover {
   transform: translateY(-15px) scale(1.03);
-  border-color: #0077ff;
+  border-color: #228b22;
 }
 
 .cardf {
