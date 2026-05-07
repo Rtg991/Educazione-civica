@@ -130,6 +130,53 @@
       border-top: 1px solid rgba(255,255,255,0.05);
     }
 
+
+    /* CILINDRO */
+.cylinder-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 190px ;
+  perspective: 1200px;
+  overflow: hidden;
+  background: radial-gradient(ellipse at center, #007fff33 0%, #00aaff11 40%, transparent 70%);
+  position: relative; /* aggiunge questo */
+}
+
+.cylinder {
+  position: relative;
+  width: 150px;
+  height: 420px;
+  transform-style: preserve-3d;
+}
+
+.cylinder-card {
+  position: absolute;
+  width: 250px;   /* era 150px */
+  height: 350px;
+  top: 0;
+  left: -125px;   /* metà della larghezza per centrare */
+  overflow: hidden;
+  border-radius: 1px 3px 3px 1px;
+  border-left: 3px solid rgba(0,0,0,0.6);
+  box-shadow:
+    -3px 0 6px rgba(0,0,0,0.8),
+    inset -20px 0 40px rgba(0,0,0,0.4),
+    inset 5px 0 10px rgba(255,255,255,0.08);
+}
+
+.cylinder-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+@keyframes rotateCylinder {
+  from { transform: rotateY(0deg); }
+  to   { transform: rotateY(-360deg); }
+}
+
+
   </style>
 </head>
 
