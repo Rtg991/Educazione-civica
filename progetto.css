@@ -299,7 +299,7 @@ body {
   width: 250px;   /* era 150px */
   height: 350px;
   top: 0;
-  left: -85px;   /* metà della larghezza per centrare */
+  left: -125px;   /* metà della larghezza per centrare */
   overflow: hidden;
   border-radius: 1px 3px 3px 1px;
   border-left: 3px solid rgba(0,0,0,0.6);
