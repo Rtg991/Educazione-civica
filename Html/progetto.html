@@ -1,3 +1,8 @@
+Ecco il codice completo con le sole modifiche necessarie per correggere l'allineamento.
+
+Ho aggiunto il max-width e il margin: auto alla classe .container (per centrare il blocco delle card) e ho aggiunto la regola per il tag section per assicurare che tutto il suo contenuto sia centrato perfettamente.
+
+HTML
 <!DOCTYPE html>
 <html lang="it">
 <head>
@@ -72,12 +77,23 @@
       color: white;
     }
 
+    /* MODIFICA: Aggiunto max-width e margin auto per la centratura */
     .container {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
       gap: 20px;
       padding: 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    /* MODIFICA: Aggiunto allineamento per la sezione */
+    section {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
 
     .card {
@@ -139,65 +155,66 @@
   </header>
 
   <section>
-  <div class="container">
+    <div class="container">
 
-   <div class="card">
-     <img src=../Immagini/progetto1.png>
-     <h3>Agenda 2030</h3>
-      <button onclick="mostra('Italiano - Storia')">Apri</button>
+     <div class="card">
+       <img src="../Immagini/progetto1.png">
+       <h3>Agenda 2030</h3>
+        <button onclick="mostra('Italiano - Storia')">Apri</button>
+      </div>
+
+      <div class="card">
+        <img src="../Immagini/progetto2.png">
+        <h3>Articoli della costituzione sullo sviluppo sostenibile</h3>
+        <button onclick="mostra('Italiano - Storia')">Apri</button>
+      </div>
+
+      <div class="card">
+        <img src="../Immagini/progetto3.png">
+        <h3>Azienda LBG</h3>
+        <button onclick="mostra('Matematica')">Apri</button>
+      </div>
+
+      <div class="card">
+        <img src="../Immagini/progetto4.png">
+        <h3>Renewable energy sources</h3>
+        <button onclick="mostra('Inglese')">Apri</button>
+      </div>
+
+      <div class="card">
+        <img src="../Immagini/progetto5.png">
+        <h3>Sostenibilità ambientale nello sport</h3>
+        <button onclick="mostra('Educazione Fisica')">Apri</button>
+      </div>
+
+      <div class="card">
+        <img src="../Immagini/progetto6.png">
+        <h3>Green Computing</h3>
+        <button onclick="mostra('TPSIT')">Apri</button>
+      </div>
+
+      <div class="card">
+        <img src="../Immagini/progetto7.png">
+        <h3>Aziende sostenibili nelle reti</h3>
+        <button onclick="mostra('Sistemi e Reti')">Apri</button>
+      </div>
+
+      <div class="card">
+        <img src="../Immagini/progetto8.png">
+        <h3>Aziende informatiche sostenibili</h3>
+        <button onclick="mostra('Informatica')">Apri</button>
+      </div>
+
+      <div class="card">
+        <img src="../Immagini/progetto9.png">
+        <h3>Fonti rinnovabili - impianti fotovoltaici</h3>
+        <button onclick="mostra('Telecomunicazioni')">Apri</button>
+      </div>
+
     </div>
-
-    <div class="card">
-      <img src=../Immagini/progetto2.jpg>
-      <h3>Articoli della costituzione sulle sviluppo sostenibile</h3>
-      <button onclick="mostra('Italiano - Storia')">Apri</button>
-    </div>
-
-    <div class="card">
-      <img src=../Immagini/progetto3.jpg>
-      <h3>Azienda LBG</h3>
-      <button onclick="mostra('Matematica')">Apri</button>
-    </div>
-
-    <div class="card">
-      <img src=../Immagini/progetto4.jpg>
-      <h3>Renewable energy sources</h3>
-      <button onclick="mostra('Inglese')">Apri</button>
-    </div>
-
-    <div class="card">
-      <img src=../Immagini/progetto5.jpg>
-      <h3>Sostenibilità ambientale nello sport</h3>
-      <button onclick="mostra('Educazione Fisica')">Apri</button>
-    </div>
-
-    <div class="card">
-      <img src=../Immagini/progetto6.jpg>
-      <h3>Green Computing</h3>
-      <button onclick="mostra('TPSIT')">Apri</button>
-    </div>
-
-    <div class="card">
-      <img src=../Immagini/progetto7.jpg>
-      <h3>Aziende sostenibili nelle reti</h3>
-      <button onclick="mostra('Sistemi e Reti')">Apri</button>
-    </div>
-
-    <div class="card">
-      <img src=../Immagini/progetto8.jpg>
-      <h3>Aziende informatiche sostenibili</h3>
-      <button onclick="mostra('Informatica')">Apri</button>
-    </div>
-
-    <div class="card">
-      <img src=../Immagini/progetto9.jpg>
-      <h3>Fonti rinnovabili - impianti fotovoltaici</h3>
-      <button onclick="mostra('Telecomunicazioni')">Apri</button>
-    </div>
-
-  </div>
-  <div id="output"></div>
+    <div id="output"></div>
   </section>
+
   <script>
     function mostra(materia) {
       document.getElementById("output").innerText = "Hai selezionato: " + materia;
