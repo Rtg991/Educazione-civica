@@ -8,11 +8,24 @@
 </head>
 
 <style>
-  .sfondo{
-    background: url("../Immagini/sostenibilita.jpg");
+  .sfondo {
+    /* Immagine con velo scuro per far risaltare il bianco */
+    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), 
+                url("../Immagini/sostenibilita.jpg");
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
+  }
+
+  .logo, h1 {
+    color: white !important;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
+  }
+
+  .navbar nav a {
+    color: #ffffff !important; /* Forza il bianco se il CSS esterno lo cambia */
+    font-weight: bold;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.6);
   }
 </style>
   
