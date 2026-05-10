@@ -110,22 +110,26 @@
       border-radius: 10px;
     }
 
-    .card button {
-      margin-top: 10px;
-      padding: 10px;
-      border: none;
-      border-radius: 10px;
-      background: #4facfe;
-      color: white;
-      cursor: pointer;
-      font-weight: bold;
-      transition: background 0.3s;
-    }
+    .card-button {
+  display: inline-block;
+  padding: 6px 12px;
+  font-size: 14px;
+  font-weight: 500;
+  color: white;
+  background-color: #2d89ef;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+}
 
-    .card button:hover {
-      background: #0077ff;
-    }
+.card-button:hover {
+  background-color: #1f6fd1;
+}
 
+.card-button:active {
+  transform: scale(0.97);
+}
     #output {
       margin-top: 20px;
       font-size: 20px;
