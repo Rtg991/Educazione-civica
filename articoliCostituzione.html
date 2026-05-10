@@ -1,1 +1,249 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CSA MODERN</title>
 
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Inter', sans-serif;
+    }
+
+    body {
+  /* Sfumatura da un verde foresta a un verde scurissimo */
+  background: linear-gradient(135deg, #1b4332 0%, #081c15 100%);
+  
+  /* Mantiene lo sfondo fisso durante lo scroll */
+  background-attachment: fixed;
+  min-height: 100vh;
+  
+  /* Il testo deve essere chiaro per contrastare lo sfondo scuro */
+  color: #e0e0e0; 
+  
+  overflow-x: hidden;
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+    /* NAVBAR */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 30px 8%;
+      background: linear-gradient(135deg, #1b4332 0%, #081c15 100%);
+      backdrop-filter: blur(10px);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .navbar nav {
+      display: flex;
+      gap: 30px;
+    }
+
+    .navbar nav a {
+      color: #8fa19e;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+
+    .navbar nav a:hover {
+      color: #00ffaa;
+    }
+
+    .logo {
+      font-weight: 800;
+      font-size: 24px;
+      color: #fff;
+    }
+
+    /* HERO */
+    .hero {
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      text-align: center;
+      position: relative;
+      padding-top: 40px;
+      height: 10px;
+      min-height: 40vh;
+    }
+
+    .hero h1 {
+      font-size: clamp(40px, 8vw, 75px);
+      margin: 0;
+    }
+
+    .hero span {
+      color: #00ffaa;
+    }
+
+    .glow {
+      position: absolute;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(0,255,170,0.15), transparent 70%);
+      top: 30%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      filter: blur(120px);
+      z-index: -1;
+    }
+
+    /* PARAGRAFO SISTEMATO */
+    .paragraph {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.1);
+      padding: 25px;
+      border-radius: 30px;
+      backdrop-filter: blur(20px);
+      width: 60%;
+      margin: -50px auto 80px auto;
+      text-align: center;
+      transition: 0.3s;      
+    }
+
+    .paragraph:hover {
+      transform: translateY(-10px) scale(1.03);
+      border-color: #00ffaa;
+      box-shadow: 0 0 25px #00ffaa;
+    }
+
+    .paragraph .title {
+      margin-bottom: 15px;
+      transition: 0.3s;
+    }
+
+    .paragraph:hover .title {
+      color: #00ffaa;
+    }
+
+    footer {
+      text-align: center;
+      padding: 60px 20px;
+      border-top: 1px solid rgba(255,255,255,0.05);
+    }
+
+
+    /* CILINDRO */
+.cylinder-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 190px ;
+  perspective: 1200px;
+  overflow: hidden;
+  background: radial-gradient(ellipse at center, #007fff33 0%, #00aaff11 40%, transparent 70%);
+  position: relative; /* aggiunge questo */
+}
+
+.cylinder {
+  position: relative;
+  width: 150px;
+  height: 420px;
+  transform-style: preserve-3d;
+}
+
+.cylinder-card {
+  position: absolute;
+  /* Dimensioni dinamiche basate sulla viewport o fisse ma proporzionate */
+  width: 280px;  
+  height: 380px; 
+  top: 50%;
+  left: 50%;
+  /* Centratura perfetta prima della trasformazione JS */
+  margin-left: -140px; 
+  margin-top: -190px;
+  
+  overflow: hidden;
+  border-radius: 8px; /* Arrotondato sta meglio con il design moderno */
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+  
+  /* Migliora la resa visiva durante la rotazione */
+  backface-visibility: visible; 
+}
+
+.cylinder-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Riempie lo spazio senza deformare */
+  display: block;
+}
+
+.cylinder-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+@keyframes rotateCylinder {
+  from { transform: rotateY(0deg); }
+  to   { transform: rotateY(-360deg); }
+}
+
+
+  </style>
+</head>
+
+<body>
+
+<header class="navbar">
+  <div class="logo">CSA MODERN</div>
+  <nav>
+    <a href="sostenibilita.html">Home</a>
+    <a href="finalita.html">Finalità e Progetto</a>
+    <a href="ChiSiamo.html">Chi siamo</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <div class="glow"></div>
+  <div class="content">
+    <h1>Proteggiamo la nostra <span>Terra</span></h1>
+  </div>
+</section>
+
+<section>
+  <div class="paragraph">
+    <h3 class="title">Giornata mondiale della Terra</h3>
+    <p>
+      La Giornata della Terra, celebrata ogni anno il 22 aprile, rappresenta uno dei momenti più significativi a livello globale per la tutela dell’ambiente e la sensibilizzazione sulle minacce che gravano sul nostro pianeta.<br> 
+      Nata nel 1970 negli Stati Uniti come risposta a un crescente bisogno di protezione legale degli ecosistemi, questa ricorrenza si è evoluta fino a coinvolgere oggi oltre un miliardo di persone in più di 190 Paesi, trasformandosi da protesta locale a pilastro della diplomazia ambientale moderna.<br>
+      L’obiettivo principale dell’evento non è soltanto promuovere la consapevolezza su temi urgenti quali il cambiamento climatico, l’inquinamento e la perdita di biodiversità, ma stimolare un profondo cambio di paradigma culturale. In un’epoca in cui gli effetti dell’attività umana sono divenuti sistemici, la Giornata della Terra invita a riconoscere l'intrinseca interdipendenza tra la salute degli ecosistemi e il benessere sociale ed economico dell'umanità. Proteggere l'ambiente significa, in ultima analisi, preservare le condizioni necessarie alla vita stessa, superando la visione della natura come mera risorsa da sfruttare in favore di una concezione di custodia responsabile.<br>
+      Questa ricorrenza pone inoltre l’accento sulla giustizia intergenerazionale, richiamando il dovere etico della generazione presente di gestire il capitale naturale in modo da non compromettere le possibilità delle generazioni future. Tuttavia, affinché tale celebrazione non resti un esercizio simbolico confinato a una singola data, è necessario che si traduca in un impegno quotidiano e strutturale.<br> 
+      Il vero successo di questo movimento risiede nella capacità di integrare la sostenibilità in ogni processo decisionale, trasformando l'attivismo straordinario in una pratica ordinaria di cittadinanza consapevole. Il cambiamento richiesto, dunque, non è solo tecnologico o normativo, ma risiede in una costante e collettiva responsabilità verso l'unico ecosistema che ospita la nostra civiltà.
+    </p>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 CSA MODERN - La Terra</p>
+</footer>
+
+</body>
+<script>document.addEventListener('DOMContentLoaded', () => {
+  const cards = document.querySelectorAll('.cylinder-card');
+  const totalCards = cards.length;
+  const angleStep = 360 / totalCards;
+  let currentAngle = 0;
+
+  function animate() {
+    currentAngle += 0.3;
+    cards.forEach((card, i) => {
+      const cardAngle = i * angleStep + currentAngle;
+      card.style.transform = `rotateY(${cardAngle}deg) translateZ(450px) rotateY(${-cardAngle + 105}deg)`;
+    });
+    requestAnimationFrame(animate);
+  }
+
+  animate();
+});
+  </script>
+</html>
