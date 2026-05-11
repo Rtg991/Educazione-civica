@@ -8,15 +8,29 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
 
   <style>
-   :root {
-      /* Palette Blu Metallico & Acciaio */
-      --primary: #00d4ff;        /* Azzurro elettrico */
-      --accent: #94a3b8;         /* Acciaio satinato */
-      --bg-dark: #020617;        /* Blu notte profondo */
-      --metal-light: #1e293b;    /* Riflesso metallico chiaro */
-      --metal-shadow: #0f172a;   /* Ombra metallica */
+   Ottima scelta. Lo stile Slate & Silver (Ardesia e Argento) è sinonimo di eleganza senza tempo, minimalismo e professionalità assoluta. Si basa su contrasti morbidi tra i grigi profondi e la brillantezza dell'argento.
+
+Ecco il codice completo per la pagina delle Aziende Sostenibili, aggiornato con questa nuova estetica raffinata:
+
+HTML
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CSA MODERN | Aziende Sostenibili</title>
+  
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      /* Palette Slate & Silver */
+      --primary: #ffffff;         /* Bianco Puro (Argento Brillante) */
+      --accent: #94a3b8;          /* Argento Satinato */
+      --bg-dark: #0f172a;         /* Ardesia Profondo */
+      --bg-light: #1e293b;        /* Ardesia Medio */
       --glass: rgba(255, 255, 255, 0.03);
-      --glass-border: rgba(255, 255, 255, 0.1);
+      --glass-border: rgba(255, 255, 255, 0.08);
     }
 
     * {
@@ -27,32 +41,12 @@
     }
 
     body {
-      /* Sfondo Blu Metallizzato con sfumature angolari per simulare il riflesso della lamiera */
-      background: 
-        linear-gradient(135deg, #0f172a 0%, #1e293b 25%, #081229 50%, #1e293b 75%, #020617 100%);
+      /* Sfondo Ardesia Profondo con sfumatura morbida */
+      background: radial-gradient(circle at top right, #1e293b, #0f172a, #020617);
       background-attachment: fixed;
-      color: #e2e8f0;
-      line-height: 1.6;
+      color: #cbd5e1;
+      line-height: 1.7;
       overflow-x: hidden;
-    }
-
-    /* Effetto "Brushing" metallico opzionale tramite overlay */
-    body::before {
-      content: "";
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: repeating-linear-gradient(
-        45deg,
-        rgba(255, 255, 255, 0.01) 0px,
-        rgba(255, 255, 255, 0.01) 1px,
-        transparent 1px,
-        transparent 2px
-      );
-      pointer-events: none;
-      z-index: -1;
     }
 
     /* NAVBAR */
@@ -61,8 +55,8 @@
       justify-content: space-between;
       align-items: center;
       padding: 20px 8%;
-      background: rgba(15, 23, 42, 0.8);
-      backdrop-filter: blur(20px);
+      background: rgba(15, 23, 42, 0.85);
+      backdrop-filter: blur(15px);
       position: sticky;
       top: 0;
       z-index: 1000;
@@ -74,62 +68,60 @@
       font-size: 22px;
       letter-spacing: -1px;
       color: #fff;
-      text-shadow: 0 0 10px rgba(0, 212, 255, 0.5);
     }
 
-    .logo span { color: var(--primary); }
+    .logo span { 
+      background: linear-gradient(to right, #fff, var(--accent));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
 
-    .navbar nav { display: flex; gap: 25px; }
+    .navbar nav { display: flex; gap: 30px; }
 
     .navbar nav a {
-      color: #94a3b8;
+      color: var(--accent);
       text-decoration: none;
-      font-size: 0.9rem;
+      font-size: 0.85rem;
       font-weight: 600;
-      transition: 0.3s;
       text-transform: uppercase;
-      letter-spacing: 1px;
+      letter-spacing: 1.5px;
+      transition: 0.3s;
     }
 
-    .navbar nav a:hover { 
-      color: var(--primary); 
-      text-shadow: 0 0 8px var(--primary);
-    }
+    .navbar nav a:hover { color: #fff; }
 
     /* HERO */
     .hero {
       text-align: center;
-      padding: 80px 20px 40px;
+      padding: 100px 20px 50px;
       position: relative;
     }
 
     .hero h1 {
-      font-size: clamp(2.5rem, 6vw, 4.5rem);
+      font-size: clamp(2.5rem, 7vw, 4.8rem);
       font-weight: 800;
-      /* Effetto testo cromato */
-      background: linear-gradient(to bottom, #fff 20%, #94a3b8 50%, #cbd5e1 80%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      margin-bottom: 10px;
-      filter: drop-shadow(0 5px 15px rgba(0,0,0,0.3));
+      color: #ffffff;
+      letter-spacing: -2px;
+      margin-bottom: 15px;
     }
 
     .hero-tag {
-      color: var(--primary);
+      color: var(--accent);
       text-transform: uppercase;
-      letter-spacing: 4px;
-      font-size: 0.8rem;
+      letter-spacing: 6px;
+      font-size: 0.75rem;
       font-weight: 700;
+      opacity: 0.8;
     }
 
-    /* CILINDRO 3D */
+    /* CILINDRO 3D (Stile Silver) */
     .cylinder-wrapper {
       height: 400px;
       display: flex;
       justify-content: center;
       align-items: center;
       perspective: 1500px;
-      margin-bottom: 50px;
+      margin-bottom: 60px;
     }
 
     .cylinder {
@@ -143,108 +135,99 @@
       position: absolute;
       width: 200px;
       height: 260px;
-      background: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0.02));
+      background: linear-gradient(135deg, rgba(255,255,255,0.05), rgba(255,255,255,0.01));
       border: 1px solid var(--glass-border);
-      border-radius: 20px;
-      backdrop-filter: blur(15px);
+      border-radius: 24px;
+      backdrop-filter: blur(10px);
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
       text-align: center;
       padding: 20px;
-      box-shadow: 0 15px 35px rgba(0,0,0,0.4);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.3);
     }
 
     .cylinder-card i {
-      font-size: 2.5rem;
+      font-size: 3rem;
       margin-bottom: 15px;
-      filter: drop-shadow(0 0 10px var(--primary));
+      color: #fff;
+      filter: drop-shadow(0 0 10px rgba(255,255,255,0.2));
     }
 
     .cylinder-card h4 {
       color: #fff;
       font-size: 0.9rem;
+      font-weight: 300;
       text-transform: uppercase;
-      letter-spacing: 1px;
+      letter-spacing: 2px;
     }
 
-    /* CONTENT GRID */
+    /* COMPANY CARDS */
     .container {
-      max-width: 1000px;
+      max-width: 900px;
       margin: 0 auto 100px;
       padding: 0 20px;
     }
 
     .company-card {
-      background: linear-gradient(145deg, rgba(30, 41, 59, 0.4), rgba(15, 23, 42, 0.4));
+      background: rgba(255, 255, 255, 0.02);
       border: 1px solid var(--glass-border);
-      padding: 40px;
-      border-radius: 30px;
-      margin-bottom: 30px;
-      backdrop-filter: blur(20px);
-      transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      padding: 50px;
+      border-radius: 32px;
+      margin-bottom: 40px;
+      transition: 0.5s cubic-bezier(0.2, 1, 0.3, 1);
       position: relative;
-      overflow: hidden;
     }
 
     .company-card:hover {
-      transform: translateY(-5px) scale(1.01);
-      border-color: var(--primary);
-      box-shadow: 0 20px 40px rgba(0, 212, 255, 0.15);
-    }
-
-    .company-card::after {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 4px;
-      height: 100%;
-      background: linear-gradient(to bottom, var(--primary), var(--secondary));
+      background: rgba(255, 255, 255, 0.04);
+      border-color: rgba(255, 255, 255, 0.2);
+      transform: translateY(-10px);
     }
 
     .company-card h3 {
-      font-size: 1.5rem;
+      font-size: 1.7rem;
       color: #fff;
-      margin-bottom: 15px;
+      margin-bottom: 20px;
       display: flex;
+      justify-content: space-between;
       align-items: center;
-      gap: 10px;
     }
 
     .company-card h3 span {
-      color: var(--primary);
-      font-size: 0.75rem;
+      font-size: 0.7rem;
+      font-weight: 800;
+      color: var(--accent);
       text-transform: uppercase;
-      background: rgba(0, 212, 255, 0.1);
-      border: 1px solid rgba(0, 212, 255, 0.2);
-      padding: 4px 12px;
-      border-radius: 20px;
+      border: 1px solid var(--glass-border);
+      padding: 5px 15px;
+      border-radius: 50px;
     }
 
     .company-card p {
-      color: #cbd5e1;
-      font-size: 1.05rem;
+      color: #94a3b8;
+      font-size: 1.1rem;
       text-align: justify;
     }
 
     footer {
       text-align: center;
-      padding: 60px 20px;
+      padding: 80px 20px;
       border-top: 1px solid var(--glass-border);
-      color: #64748b;
+      color: #475569;
+      font-size: 0.85rem;
+      letter-spacing: 1px;
     }
 
-    /* Glow dinamico per il blu metallico */
-    .glow-bg {
-      position: absolute;
-      width: 800px;
-      height: 800px;
-      background: radial-gradient(circle, rgba(0, 212, 255, 0.07), transparent 70%);
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
+    /* Effetto Luce Soffusa Argento */
+    .glow-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle at 50% 50%, rgba(255,255,255,0.02) 0%, transparent 80%);
       pointer-events: none;
       z-index: -1;
     }
