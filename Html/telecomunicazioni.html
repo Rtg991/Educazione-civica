@@ -11,9 +11,9 @@
     :root {
       --primary: #00ffaa;
       --accent: #00d4ff;
-      --bg-dark: #081c15;
-      --glass: rgba(255, 255, 255, 0.03);
-      --glass-border: rgba(255, 255, 255, 0.1);
+      --bg-custom: #3293a8; /* Il tuo colore richiesto */
+      --glass: rgba(255, 255, 255, 0.12);
+      --glass-border: rgba(255, 255, 255, 0.25);
     }
 
     * {
@@ -24,9 +24,10 @@
     }
 
     body {
-      background: radial-gradient(circle at top right, #1b4332, #081c15);
+      /* Sfondo con il colore richiesto e una sfumatura per dare profondità */
+      background: radial-gradient(circle at top right, #45abbf, var(--bg-custom));
       background-attachment: fixed;
-      color: #e0e0e0;
+      color: #f0fdfa;
       line-height: 1.6;
       overflow-x: hidden;
     }
@@ -37,7 +38,7 @@
       justify-content: space-between;
       align-items: center;
       padding: 20px 8%;
-      background: rgba(8, 28, 21, 0.85);
+      background: rgba(50, 147, 168, 0.8);
       backdrop-filter: blur(15px);
       position: sticky;
       top: 0;
@@ -52,12 +53,12 @@
       color: #fff;
     }
 
-    .logo span { color: var(--primary); }
+    .logo span { color: var(--primary); text-shadow: 0 0 10px rgba(0, 255, 170, 0.3); }
 
     .navbar nav { display: flex; gap: 30px; }
 
     .navbar nav a {
-      color: #8fa19e;
+      color: #e0f2f1;
       text-decoration: none;
       font-size: 0.85rem;
       font-weight: 600;
@@ -78,10 +79,9 @@
     .hero h1 {
       font-size: clamp(2rem, 6vw, 4rem);
       font-weight: 800;
-      background: linear-gradient(to bottom, #fff, #8fa19e);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+      color: #ffffff;
       margin-bottom: 15px;
+      text-shadow: 0 4px 12px rgba(0,0,0,0.1);
     }
 
     .hero-tag {
@@ -113,21 +113,21 @@
       position: absolute;
       width: 220px;
       height: 280px;
-      background: linear-gradient(135deg, rgba(255,255,255,0.05), rgba(255,255,255,0.01));
+      background: rgba(255, 255, 255, 0.15);
       border: 1px solid var(--glass-border);
       border-radius: 24px;
-      backdrop-filter: blur(10px);
+      backdrop-filter: blur(12px);
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
       text-align: center;
       padding: 20px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+      box-shadow: 0 15px 35px rgba(0,0,0,0.15);
     }
 
-    .cylinder-card .icon { font-size: 3rem; margin-bottom: 10px; }
-    .cylinder-card h4 { font-size: 0.8rem; color: var(--primary); text-transform: uppercase; }
+    .cylinder-card .icon { font-size: 3rem; margin-bottom: 10px; filter: drop-shadow(0 0 8px rgba(0,0,0,0.1)); }
+    .cylinder-card h4 { font-size: 0.85rem; color: #fff; text-transform: uppercase; font-weight: 700; }
 
     /* PARAGRAFO / CARDS */
     .container {
@@ -142,7 +142,7 @@
       padding: 50px;
       border-radius: 40px;
       backdrop-filter: blur(20px);
-      box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+      box-shadow: 0 25px 60px rgba(0,0,0,0.15);
     }
 
     .section-title {
@@ -165,8 +165,8 @@
     .section-title:first-child { margin-top: 0; }
 
     .content-box p {
-      font-size: 1.05rem;
-      color: #cbd5d1;
+      font-size: 1.1rem;
+      color: #e0f2f1;
       margin-bottom: 25px;
       text-align: justify;
     }
@@ -180,27 +180,31 @@
     }
 
     .highlight-item {
-      background: rgba(255,255,255,0.02);
-      border-left: 3px solid var(--primary);
-      padding: 15px;
+      background: rgba(255,255,255,0.1);
+      border-left: 4px solid var(--primary);
+      padding: 18px;
       border-radius: 0 15px 15px 0;
+      transition: 0.3s;
     }
 
-    .highlight-item b { color: var(--primary); display: block; margin-bottom: 5px; }
+    .highlight-item:hover { background: rgba(255,255,255,0.15); }
+
+    .highlight-item b { color: var(--primary); display: block; margin-bottom: 5px; font-size: 0.95rem; text-transform: uppercase; }
 
     footer {
       text-align: center;
       padding: 60px 20px;
       border-top: 1px solid var(--glass-border);
-      color: #556b66;
+      color: #e0f2f1;
       font-size: 0.9rem;
+      opacity: 0.8;
     }
 
     .glow-sphere {
       position: absolute;
       width: 500px;
       height: 500px;
-      background: radial-gradient(circle, rgba(0, 255, 170, 0.05), transparent 70%);
+      background: radial-gradient(circle, rgba(255, 255, 255, 0.15), transparent 70%);
       top: 20%;
       left: 50%;
       transform: translate(-50%, -50%);
