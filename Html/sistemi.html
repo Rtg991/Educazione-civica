@@ -8,10 +8,13 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
 
   <style>
-    :root {
-      --primary: #00ffaa;
-      --accent: #00d4ff;
-      --bg-dark: #081c15;
+   :root {
+      /* Palette Blu Metallico & Acciaio */
+      --primary: #00d4ff;        /* Azzurro elettrico */
+      --accent: #94a3b8;         /* Acciaio satinato */
+      --bg-dark: #020617;        /* Blu notte profondo */
+      --metal-light: #1e293b;    /* Riflesso metallico chiaro */
+      --metal-shadow: #0f172a;   /* Ombra metallica */
       --glass: rgba(255, 255, 255, 0.03);
       --glass-border: rgba(255, 255, 255, 0.1);
     }
@@ -24,11 +27,32 @@
     }
 
     body {
-      background: radial-gradient(circle at top right, #1b4332, #081c15);
+      /* Sfondo Blu Metallizzato con sfumature angolari per simulare il riflesso della lamiera */
+      background: 
+        linear-gradient(135deg, #0f172a 0%, #1e293b 25%, #081229 50%, #1e293b 75%, #020617 100%);
       background-attachment: fixed;
-      color: #e0e0e0;
+      color: #e2e8f0;
       line-height: 1.6;
       overflow-x: hidden;
+    }
+
+    /* Effetto "Brushing" metallico opzionale tramite overlay */
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: repeating-linear-gradient(
+        45deg,
+        rgba(255, 255, 255, 0.01) 0px,
+        rgba(255, 255, 255, 0.01) 1px,
+        transparent 1px,
+        transparent 2px
+      );
+      pointer-events: none;
+      z-index: -1;
     }
 
     /* NAVBAR */
@@ -37,8 +61,8 @@
       justify-content: space-between;
       align-items: center;
       padding: 20px 8%;
-      background: rgba(8, 28, 21, 0.8);
-      backdrop-filter: blur(15px);
+      background: rgba(15, 23, 42, 0.8);
+      backdrop-filter: blur(20px);
       position: sticky;
       top: 0;
       z-index: 1000;
@@ -50,6 +74,7 @@
       font-size: 22px;
       letter-spacing: -1px;
       color: #fff;
+      text-shadow: 0 0 10px rgba(0, 212, 255, 0.5);
     }
 
     .logo span { color: var(--primary); }
@@ -57,14 +82,19 @@
     .navbar nav { display: flex; gap: 25px; }
 
     .navbar nav a {
-      color: #8fa19e;
+      color: #94a3b8;
       text-decoration: none;
       font-size: 0.9rem;
-      font-weight: 500;
+      font-weight: 600;
       transition: 0.3s;
+      text-transform: uppercase;
+      letter-spacing: 1px;
     }
 
-    .navbar nav a:hover { color: var(--primary); }
+    .navbar nav a:hover { 
+      color: var(--primary); 
+      text-shadow: 0 0 8px var(--primary);
+    }
 
     /* HERO */
     .hero {
@@ -76,10 +106,12 @@
     .hero h1 {
       font-size: clamp(2.5rem, 6vw, 4.5rem);
       font-weight: 800;
-      background: linear-gradient(to bottom, #fff, #8fa19e);
+      /* Effetto testo cromato */
+      background: linear-gradient(to bottom, #fff 20%, #94a3b8 50%, #cbd5e1 80%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       margin-bottom: 10px;
+      filter: drop-shadow(0 5px 15px rgba(0,0,0,0.3));
     }
 
     .hero-tag {
@@ -111,29 +143,30 @@
       position: absolute;
       width: 200px;
       height: 260px;
-      background: var(--glass);
+      background: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0.02));
       border: 1px solid var(--glass-border);
       border-radius: 20px;
-      backdrop-filter: blur(10px);
+      backdrop-filter: blur(15px);
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
       text-align: center;
       padding: 20px;
-      box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+      box-shadow: 0 15px 35px rgba(0,0,0,0.4);
     }
 
     .cylinder-card i {
       font-size: 2.5rem;
       margin-bottom: 15px;
-      display: block;
+      filter: drop-shadow(0 0 10px var(--primary));
     }
 
     .cylinder-card h4 {
-      color: var(--primary);
+      color: #fff;
       font-size: 0.9rem;
       text-transform: uppercase;
+      letter-spacing: 1px;
     }
 
     /* CONTENT GRID */
@@ -144,21 +177,21 @@
     }
 
     .company-card {
-      background: var(--glass);
+      background: linear-gradient(145deg, rgba(30, 41, 59, 0.4), rgba(15, 23, 42, 0.4));
       border: 1px solid var(--glass-border);
       padding: 40px;
       border-radius: 30px;
       margin-bottom: 30px;
       backdrop-filter: blur(20px);
-      transition: 0.4s ease;
+      transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
       position: relative;
       overflow: hidden;
     }
 
     .company-card:hover {
-      transform: translateY(-5px);
+      transform: translateY(-5px) scale(1.01);
       border-color: var(--primary);
-      box-shadow: 0 20px 40px rgba(0, 255, 170, 0.05);
+      box-shadow: 0 20px 40px rgba(0, 212, 255, 0.15);
     }
 
     .company-card::after {
@@ -168,8 +201,7 @@
       left: 0;
       width: 4px;
       height: 100%;
-      background: var(--primary);
-      opacity: 0.5;
+      background: linear-gradient(to bottom, var(--primary), var(--secondary));
     }
 
     .company-card h3 {
@@ -183,15 +215,16 @@
 
     .company-card h3 span {
       color: var(--primary);
-      font-size: 0.8rem;
+      font-size: 0.75rem;
       text-transform: uppercase;
-      background: rgba(0, 255, 170, 0.1);
+      background: rgba(0, 212, 255, 0.1);
+      border: 1px solid rgba(0, 212, 255, 0.2);
       padding: 4px 12px;
       border-radius: 20px;
     }
 
     .company-card p {
-      color: #b0c4b1;
+      color: #cbd5e1;
       font-size: 1.05rem;
       text-align: justify;
     }
@@ -200,14 +233,15 @@
       text-align: center;
       padding: 60px 20px;
       border-top: 1px solid var(--glass-border);
-      color: #556b66;
+      color: #64748b;
     }
 
+    /* Glow dinamico per il blu metallico */
     .glow-bg {
       position: absolute;
-      width: 600px;
-      height: 600px;
-      background: radial-gradient(circle, rgba(0, 255, 170, 0.05), transparent 70%);
+      width: 800px;
+      height: 800px;
+      background: radial-gradient(circle, rgba(0, 212, 255, 0.07), transparent 70%);
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
