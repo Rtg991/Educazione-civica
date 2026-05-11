@@ -1,11 +1,21 @@
 <!DOCTYPE html>
-<html lang="it">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CSA MODERN</title>
+  <title>CSA MODERN | Renewable Energy</title>
+  
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
 
   <style>
+    :root {
+      --primary: #00ffaa; /* Verde Neon */
+      --secondary: #00d4ff; /* Blu Energia */
+      --bg-dark: #081c15;
+      --glass: rgba(255, 255, 255, 0.03);
+      --glass-border: rgba(255, 255, 255, 0.1);
+    }
+
     * {
       margin: 0;
       padding: 0;
@@ -14,231 +24,285 @@
     }
 
     body {
-  /* Sfumatura da un verde foresta a un verde scurissimo */
-  background: linear-gradient(135deg, #1b4332 0%, #081c15 100%);
-  
-  /* Mantiene lo sfondo fisso durante lo scroll */
-  background-attachment: fixed;
-  min-height: 100vh;
-  
-  /* Il testo deve essere chiaro per contrastare lo sfondo scuro */
-  color: #e0e0e0; 
-  
-  overflow-x: hidden;
-  margin: 0;
-  font-family: Arial, sans-serif;
-}
+      background: radial-gradient(circle at bottom left, #1b4332, #081c15);
+      background-attachment: fixed;
+      color: #e0e0e0;
+      line-height: 1.8;
+      overflow-x: hidden;
+    }
 
     /* NAVBAR */
     .navbar {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 30px 8%;
-      background: linear-gradient(135deg, #1b4332 0%, #081c15 100%);
-      backdrop-filter: blur(10px);
+      padding: 20px 8%;
+      background: rgba(8, 28, 21, 0.8);
+      backdrop-filter: blur(15px);
       position: sticky;
       top: 0;
       z-index: 1000;
-    }
-
-    .navbar nav {
-      display: flex;
-      gap: 30px;
-    }
-
-    .navbar nav a {
-      color: #8fa19e;
-      text-decoration: none;
-      transition: 0.3s;
-    }
-
-    .navbar nav a:hover {
-      color: #00ffaa;
+      border-bottom: 1px solid var(--glass-border);
     }
 
     .logo {
       font-weight: 800;
-      font-size: 24px;
+      font-size: 22px;
+      letter-spacing: -1px;
       color: #fff;
     }
 
-    /* HERO */
-    .hero {
-      display: flex;
-      align-items: flex-start;
-      justify-content: center;
-      text-align: center;
-      position: relative;
-      padding-top: 40px;
-      height: 10px;
-      min-height: 40vh;
-    }
+    .logo span { color: var(--primary); }
 
-    .hero h1 {
-      font-size: clamp(40px, 8vw, 75px);
-      margin: 0;
-    }
+    .navbar nav { display: flex; gap: 30px; }
 
-    .hero span {
-      color: #00ffaa;
-    }
-
-    .glow {
-      position: absolute;
-      width: 600px;
-      height: 600px;
-      background: radial-gradient(circle, rgba(0,255,170,0.15), transparent 70%);
-      top: 30%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      filter: blur(120px);
-      z-index: -1;
-    }
-
-    /* PARAGRAFO SISTEMATO */
-    .paragraph {
-      background: rgba(255,255,255,0.03);
-      border: 1px solid rgba(255,255,255,0.1);
-      padding: 25px;
-      border-radius: 30px;
-      backdrop-filter: blur(20px);
-      width: 60%;
-      margin: -50px auto 80px auto;
-      text-align: center;
-      transition: 0.3s;      
-    }
-
-    .paragraph:hover {
-      transform: translateY(-10px) scale(1.03);
-      border-color: #00ffaa;
-      box-shadow: 0 0 25px #00ffaa;
-    }
-
-    .paragraph .title {
-      margin-bottom: 15px;
+    .navbar nav a {
+      color: #8fa19e;
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
       transition: 0.3s;
     }
 
-    .paragraph:hover .title {
-      color: #00ffaa;
+    .navbar nav a:hover { color: var(--primary); text-shadow: 0 0 8px var(--primary); }
+
+    /* HERO */
+    .hero {
+      padding: 100px 20px 40px;
+      text-align: center;
+      position: relative;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.5rem, 8vw, 5rem);
+      font-weight: 800;
+      background: linear-gradient(to bottom, #fff, #8fa19e);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      line-height: 1.1;
+    }
+
+    .hero-tag {
+      color: var(--primary);
+      text-transform: uppercase;
+      letter-spacing: 5px;
+      font-weight: 700;
+      font-size: 0.9rem;
+      display: block;
+      margin-bottom: 10px;
+    }
+
+    /* CILINDRO 3D (Stilizzato con Icone) */
+    .cylinder-wrapper {
+      height: 480px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      perspective: 2000px;
+      margin-bottom: 20px;
+    }
+
+    .cylinder {
+      position: relative;
+      width: 220px;
+      height: 300px;
+      transform-style: preserve-3d;
+    }
+
+    .cylinder-card {
+      position: absolute;
+      width: 220px;
+      height: 300px;
+      background: linear-gradient(135deg, rgba(255,255,255,0.05), rgba(255,255,255,0.01));
+      border: 1px solid var(--glass-border);
+      border-radius: 24px;
+      backdrop-filter: blur(12px);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 25px;
+      transition: border 0.4s, box-shadow 0.4s;
+    }
+
+    .cylinder-card:hover {
+      border-color: var(--primary);
+      box-shadow: 0 0 40px rgba(0, 255, 170, 0.2);
+    }
+
+    .cylinder-card .icon {
+      font-size: 3.5rem;
+      margin-bottom: 20px;
+      filter: drop-shadow(0 0 10px rgba(0, 255, 170, 0.3));
+    }
+
+    .cylinder-card h4 {
+      color: var(--primary);
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      font-weight: 800;
+    }
+
+    /* PARAGRAFO */
+    .container {
+      max-width: 950px;
+      margin: 0 auto 100px;
+      padding: 0 20px;
+    }
+
+    .paragraph {
+      background: var(--glass);
+      border: 1px solid var(--glass-border);
+      padding: 60px;
+      border-radius: 45px;
+      backdrop-filter: blur(20px);
+      box-shadow: 0 25px 80px rgba(0,0,0,0.4);
+      position: relative;
+    }
+
+    .paragraph .title {
+      font-size: 2.2rem;
+      color: #fff;
+      margin-bottom: 35px;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .paragraph .title::before {
+      content: '';
+      width: 50px;
+      height: 5px;
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
+      border-radius: 10px;
+    }
+
+    .paragraph p {
+      font-size: 1.15rem;
+      color: #cbd5d1;
+      text-align: justify;
+      font-weight: 300;
+    }
+
+    .paragraph strong {
+      color: var(--primary);
+      font-weight: 600;
     }
 
     footer {
       text-align: center;
-      padding: 60px 20px;
-      border-top: 1px solid rgba(255,255,255,0.05);
+      padding: 80px 20px;
+      border-top: 1px solid var(--glass-border);
+      color: #556b66;
+      font-size: 0.9rem;
+      letter-spacing: 1px;
     }
 
-
-    /* CILINDRO */
-.cylinder-wrapper {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 190px ;
-  perspective: 1200px;
-  overflow: hidden;
-  background: radial-gradient(ellipse at center, #007fff33 0%, #00aaff11 40%, transparent 70%);
-  position: relative; /* aggiunge questo */
-}
-
-.cylinder {
-  position: relative;
-  width: 150px;
-  height: 420px;
-  transform-style: preserve-3d;
-}
-
-.cylinder-card {
-  position: absolute;
-  /* Dimensioni dinamiche basate sulla viewport o fisse ma proporzionate */
-  width: 280px;  
-  height: 380px; 
-  top: 50%;
-  left: 50%;
-  /* Centratura perfetta prima della trasformazione JS */
-  margin-left: -140px; 
-  margin-top: -190px;
-  
-  overflow: hidden;
-  border-radius: 8px; /* Arrotondato sta meglio con il design moderno */
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-  
-  /* Migliora la resa visiva durante la rotazione */
-  backface-visibility: visible; 
-}
-
-.cylinder-card img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover; /* Riempie lo spazio senza deformare */
-  display: block;
-}
-
-.cylinder-card img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-@keyframes rotateCylinder {
-  from { transform: rotateY(0deg); }
-  to   { transform: rotateY(-360deg); }
-}
-
-
+    /* Bagliore di Sfondo */
+    .glow-sphere {
+      position: absolute;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(0, 255, 170, 0.05), transparent 70%);
+      top: 10%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      pointer-events: none;
+      z-index: -1;
+    }
   </style>
 </head>
 
 <body>
 
 <header class="navbar">
-  <div class="logo">CSA MODERN</div>
+  <div class="logo">CSA <span>MODERN</span></div>
   <nav>
-    <a href="sostenibilita.html">Home</a>
-    <a href="finalita.html">Finalità e Progetto</a>
-    <a href="ChiSiamo.html">Chi siamo</a>
+    <a href="#">Home</a>
+    <a href="#">Projects</a>
+    <a href="#">About</a>
   </nav>
 </header>
 
 <section class="hero">
-  <div class="glow"></div>
-  <div class="content">
-    <h1>Renewable energy sources</h1>
-  </div>
+  <div class="glow-sphere"></div>
+  <span class="hero-tag">The Future of Power</span>
+  <h1>Renewable Energy Sources</h1>
 </section>
 
-<section>
+<div class="cylinder-wrapper">
+  <div class="cylinder" id="cylinder">
+    </div>
+</div>
+
+<div class="container">
   <div class="paragraph">
-    <h3 class="title">Renewable energy sources</h3>
+    <h3 class="title">Sustainable Energy for All</h3>
     <p>
-      The issue of energy resource sustainability is becoming increasingly important, as energy is essential for everyday life. It is needed to heat homes, power industries, run cities, and support transportation systems. Therefore, energy sources must be able to meet these demands over the long term. Renewable energy sources offer an effective solution because they naturally replenish and produce far less pollution and greenhouse gas emissions than nonrenewable sources, helping to reduce climate change. Throughout history, the United States has relied on different energy sources. Before the nineteenth century, wood was the primary resource, while later fossil fuels such as coal, oil, and natural gas became dominant. Although these sources are highly efficient, they are limited in supply and cause significant environmental damage. For this reason, the use of renewable energy has steadily increased in recent decades, becoming an important part of national energy consumption. However, renewable energy sources also present challenges. For example, solar and wind energy production depends on weather conditions and can vary daily or seasonally. To address these limitations, scientific research is developing new technologies, including energy storage systems and more efficient electrical grids. The main renewable energy sources include biomass, which uses organic materials such as wood, waste, and biofuels; hydropower, which relies on the energy of moving water to generate electricity; geothermal energy, which harnesses heat from within the Earth; wind energy, which converts wind power into electricity; and solar energy, which transforms solar radiation into electrical energy through photovoltaic panels. Expanding these resources is essential to ensure sustainable development, conserve natural resources, and provide a cleaner and healthier environment for future generations. 
+      The issue of energy resource sustainability is becoming increasingly important, as energy is essential for everyday life. It is needed to heat homes, power industries, run cities, and support transportation systems. Therefore, energy sources must be able to meet these demands over the long term. <strong>Renewable energy sources</strong> offer an effective solution because they naturally replenish and produce far less pollution and greenhouse gas emissions than nonrenewable sources, helping to reduce climate change. Throughout history, the United States has relied on different energy sources. Before the nineteenth century, wood was the primary resource, while later fossil fuels such as coal, oil, and natural gas became dominant. Although these sources are highly efficient, they are limited in supply and cause significant environmental damage. For this reason, the use of renewable energy has steadily increased in recent decades, becoming an important part of national energy consumption. However, renewable energy sources also present challenges. For example, solar and wind energy production depends on weather conditions and can vary daily or seasonally. To address these limitations, scientific research is developing new technologies, including energy storage systems and more efficient electrical grids. The main renewable energy sources include <strong>biomass</strong>, which uses organic materials such as wood, waste, and biofuels; <strong>hydropower</strong>, which relies on the energy of moving water to generate electricity; <strong>geothermal energy</strong>, which harnesses heat from within the Earth; <strong>wind energy</strong>, which converts wind power into electricity; and <strong>solar energy</strong>, which transforms solar radiation into electrical energy through photovoltaic panels. Expanding these resources is essential to ensure sustainable development, conserve natural resources, and provide a cleaner and healthier environment for future generations.
     </p>
   </div>
-</section>
+</div>
+
 <footer>
-  <p>© 2026 CSA MODERN - La Terra</p>
+  <p>© 2026 CSA MODERN — Shaping a Greener Tomorrow</p>
 </footer>
 
-</body>
-<script>document.addEventListener('DOMContentLoaded', () => {
-  const cards = document.querySelectorAll('.cylinder-card');
-  const totalCards = cards.length;
-  const angleStep = 360 / totalCards;
-  let currentAngle = 0;
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const cylinder = document.getElementById('cylinder');
+    
+    // Dati per i pannelli (Icone ed Etichette)
+    const energyTypes = [
+      { icon: '☀️', label: 'Solar' },
+      { icon: '💨', label: 'Wind' },
+      { icon: '💧', label: 'Hydropower' },
+      { icon: '🔥', label: 'Geothermal' },
+      { icon: '🌱', label: 'Biomass' },
+      { icon: '🔋', label: 'Storage' }
+    ];
 
-  function animate() {
-    currentAngle += 0.3;
-    cards.forEach((card, i) => {
-      const cardAngle = i * angleStep + currentAngle;
-      card.style.transform = `rotateY(${cardAngle}deg) translateZ(450px) rotateY(${-cardAngle + 105}deg)`;
+    const total = energyTypes.length;
+    const angleStep = 360 / total;
+
+    // Creazione delle card
+    energyTypes.forEach((data, i) => {
+      const card = document.createElement('div');
+      card.className = 'cylinder-card';
+      card.innerHTML = `<div class="icon">${data.icon}</div><h4>${data.label}</h4>`;
+      cylinder.appendChild(card);
     });
-    requestAnimationFrame(animate);
-  }
 
-  animate();
-});
-  </script>
+    const cards = document.querySelectorAll('.cylinder-card');
+    let currentAngle = 0;
+
+    function animate() {
+      currentAngle += 0.4; // Velocità di rotazione
+      cards.forEach((card, i) => {
+        const cardAngle = i * angleStep + currentAngle;
+        // Posizionamento nel cerchio 3D
+        card.style.transform = `rotateY(${cardAngle}deg) translateZ(380px)`;
+        
+        // Effetto dissolvenza per le card sul retro (migliora il realismo)
+        const normalizedAngle = (cardAngle % 360 + 360) % 360;
+        if (normalizedAngle > 90 && normalizedAngle < 270) {
+          card.style.opacity = "0.2";
+          card.style.pointerEvents = "none";
+        } else {
+          card.style.opacity = "1";
+          card.style.pointerEvents = "all";
+        }
+      });
+      requestAnimationFrame(animate);
+    }
+
+    animate();
+  });
+</script>
+
+</body>
 </html>
