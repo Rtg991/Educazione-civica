@@ -9,9 +9,11 @@
 
   <style>
     :root {
-      --primary: #00ffaa;
-      --secondary: #00d4ff;
-      --bg-dark: #081c15;
+      /* Palette Blue-Tech: Sostituito il verde con tonalità Ciano e Navy */
+      --primary: #00d4ff;        /* Ciano vivido */
+      --secondary: #0072ff;      /* Blu elettrico */
+      --bg-dark: #020617;        /* Blu notte quasi nero */
+      --bg-light: #0f172a;       /* Blu ardesia scuro */
       --glass: rgba(255, 255, 255, 0.03);
       --glass-border: rgba(255, 255, 255, 0.1);
     }
@@ -24,9 +26,10 @@
     }
 
     body {
-      background: radial-gradient(circle at top right, #1b4332, #081c15);
+      /* Nuovo sfondo radiale sui toni del blu profondo */
+      background: radial-gradient(circle at top right, var(--bg-light), var(--bg-dark));
       background-attachment: fixed;
-      color: #e0e0e0;
+      color: #e0e2e6;
       line-height: 1.7;
       overflow-x: hidden;
     }
@@ -37,7 +40,7 @@
       justify-content: space-between;
       align-items: center;
       padding: 20px 8%;
-      background: rgba(8, 28, 21, 0.8);
+      background: rgba(2, 6, 23, 0.85); /* Sincronizzato con bg-dark */
       backdrop-filter: blur(15px);
       position: sticky;
       top: 0;
@@ -57,7 +60,7 @@
     .navbar nav { display: flex; gap: 30px; }
 
     .navbar nav a {
-      color: #8fa19e;
+      color: #94a3b8; /* Grigio azzurrato */
       text-decoration: none;
       font-size: 0.85rem;
       font-weight: 600;
@@ -66,7 +69,7 @@
       transition: 0.3s;
     }
 
-    .navbar nav a:hover { color: var(--primary); }
+    .navbar nav a:hover { color: var(--primary); text-shadow: 0 0 10px var(--primary); }
 
     /* HERO */
     .hero {
@@ -78,7 +81,7 @@
     .hero h1 {
       font-size: clamp(2.5rem, 8vw, 5rem);
       font-weight: 800;
-      background: linear-gradient(to bottom, #fff, #8fa19e);
+      background: linear-gradient(to bottom, #fff, #94a3b8);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       margin-bottom: 10px;
@@ -91,7 +94,6 @@
       font-weight: 700;
       font-size: 0.9rem;
     }
-
     /* CILINDRO INFO (Sostituisce le immagini con icone/testo) */
     .cylinder-wrapper {
       height: 450px;
@@ -144,62 +146,23 @@
     }
 
     /* PARAGRAFO ESTESO */
-    .container {
-      max-width: 900px;
-      margin: 0 auto 100px;
-      padding: 0 20px;
-    }
-
     .paragraph {
-      background: var(--glass);
+      background: rgba(15, 23, 42, 0.4); /* Sfondo ardesia trasparente */
       border: 1px solid var(--glass-border);
-      padding: 60px;
-      border-radius: 40px;
-      backdrop-filter: blur(20px);
-      box-shadow: 0 20px 60px rgba(0,0,0,0.3);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .paragraph::before {
-      content: '"';
-      position: absolute;
-      top: 20px;
-      left: 30px;
-      font-size: 120px;
-      color: rgba(0, 255, 170, 0.05);
-      font-family: serif;
-    }
-
-    .paragraph .title {
-      font-size: 2rem;
-      color: #fff;
-      margin-bottom: 30px;
-      display: flex;
-      align-items: center;
-      gap: 15px;
     }
 
     .paragraph .title::before {
-      content: '';
-      width: 40px;
-      height: 4px;
       background: var(--primary);
-      border-radius: 2px;
     }
 
-    .paragraph p {
-      font-size: 1.15rem;
-      color: #c9d1d0;
-      text-align: justify;
+    /* Effetto Glow di sfondo */
+    .glow {
+      background: radial-gradient(circle, rgba(0, 212, 255, 0.1), transparent 70%);
     }
 
     footer {
-      text-align: center;
-      padding: 60px 20px;
       border-top: 1px solid var(--glass-border);
-      color: #556b66;
-      font-size: 0.9rem;
+      color: #64748b;
     }
 
     /* Effetto Glow */
