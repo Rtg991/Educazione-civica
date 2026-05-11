@@ -7,17 +7,17 @@
   
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
 
- <style>
+  <style>
     :root {
-      /* Palette Verde Chiaro / Mint */
-      --primary: #52b788;        /* Verde menta deciso */
-      --secondary: #b7e4c7;      /* Verde pastello molto chiaro */
-      --bg-light: #f8f9fa;       /* Grigio quasi bianco */
-      --bg-content: #ffffff;      /* Bianco puro */
-      --glass: rgba(255, 255, 255, 0.7);
-      --glass-border: rgba(0, 0, 0, 0.05);
-      --text-main: #2d6a4f;      /* Verde molto scuro per la leggibilità */
-      --text-dim: #40916c;       /* Verde medio per i paragrafi */
+      /* Palette Verde Chiaro / Mint & Sage */
+      --primary: #52b788;        /* Verde menta vivido */
+      --secondary: #95d5b2;      /* Verde pastello */
+      --bg-light: #f8fdfa;       /* Bianco con punta di menta */
+      --bg-content: #ffffff;     /* Bianco puro */
+      --glass: rgba(255, 255, 255, 0.6);
+      --glass-border: rgba(0, 0, 0, 0.06);
+      --text-main: #1b4332;      /* Verde bosco scuro per i titoli */
+      --text-dim: #40916c;       /* Verde salvia per i paragrafi */
     }
 
     * {
@@ -28,7 +28,6 @@
     }
 
     body {
-      /* Sfondo chiaro con un leggero gradiente setoso */
       background: radial-gradient(circle at top right, #d8f3dc 0%, var(--bg-light) 60%);
       background-attachment: fixed;
       color: var(--text-main);
@@ -41,8 +40,8 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 15px 8%;
-      background: rgba(248, 249, 250, 0.85);
+      padding: 20px 8%;
+      background: rgba(255, 255, 255, 0.8);
       backdrop-filter: blur(15px);
       position: sticky;
       top: 0;
@@ -50,14 +49,16 @@
       border-bottom: 1px solid var(--glass-border);
     }
 
-    .logo { color: #1b4332; }
-    .logo span { 
-      color: var(--primary);
-      font-weight: 900;
-    }
+    .logo { font-weight: 800; font-size: 22px; color: var(--text-main); }
+    .logo span { color: var(--primary); }
 
+    .navbar nav { display: flex; gap: 30px; }
     .navbar nav a {
       color: #556b66;
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 600;
+      text-transform: uppercase;
       transition: 0.3s;
     }
     .navbar nav a:hover { color: var(--primary); }
@@ -66,46 +67,86 @@
     .hero {
       padding: 80px 20px 20px;
       text-align: center;
+      position: relative;
     }
 
     .hero h1 {
-      font-size: clamp(2.5rem, 8vw, 4.5rem);
+      font-size: clamp(2.5rem, 8vw, 5rem);
       font-weight: 800;
-      color: #1b4332; /* Colore solido e pulito */
+      background: linear-gradient(to bottom, var(--text-main), var(--text-dim));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
       margin-bottom: 10px;
     }
 
     .hero-tag {
       color: var(--primary);
+      text-transform: uppercase;
       letter-spacing: 5px;
       font-weight: 700;
+      font-size: 0.9rem;
+      display: block;
     }
 
-    /* CILINDRO 3D (Adattato ai colori chiari) */
+    /* CILINDRO 3D (Stile originale riadattato) */
+    .cylinder-wrapper {
+      height: 450px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      perspective: 2000px;
+      margin-bottom: 20px;
+    }
+
+    .cylinder {
+      position: relative;
+      width: 220px;
+      height: 300px;
+      transform-style: preserve-3d;
+    }
+
     .cylinder-card {
-      background: var(--bg-content);
+      position: absolute;
+      width: 200px;
+      height: 280px;
+      /* Background stile vetro chiaro */
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(216, 243, 220, 0.5));
       border: 1px solid var(--glass-border);
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+      border-radius: 24px;
+      backdrop-filter: blur(10px);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 20px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+      transition: all 0.3s ease;
     }
 
     .cylinder-card:hover {
       border-color: var(--primary);
-      box-shadow: 0 15px 45px rgba(82, 183, 136, 0.2);
+      transform: scale(1.05) !important;
+      box-shadow: 0 15px 35px rgba(82, 183, 136, 0.2);
     }
 
     .cylinder-card i {
-      font-size: 3rem;
-      filter: none; /* Rimosso il glow per un look minimal */
+      font-size: 3.5rem;
+      margin-bottom: 15px;
+      display: block;
     }
 
     .cylinder-card h4 {
-      color: var(--text-dim);
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--text-main);
     }
 
     /* CONTENUTO TESTUALE */
     .container {
       max-width: 900px;
-      margin: 40px auto 100px;
+      margin: 0 auto 100px;
       padding: 0 20px;
     }
 
@@ -113,36 +154,58 @@
       background: var(--bg-content);
       border: 1px solid var(--glass-border);
       padding: 60px;
-      border-radius: 30px;
-      box-shadow: 0 20px 60px rgba(0,0,0,0.03);
+      border-radius: 40px;
+      box-shadow: 0 25px 50px rgba(0,0,0,0.04);
     }
 
     .paragraph .title {
-      font-size: 1.9rem;
-      color: #1b4332;
-      margin-top: 35px;
+      font-size: 2.2rem;
+      color: var(--text-main);
+      margin-top: 40px;
+      margin-bottom: 25px;
+      display: flex;
+      align-items: center;
+      gap: 15px;
     }
 
+    .paragraph .title:first-child { margin-top: 0; }
+
     .paragraph .title::before {
+      content: '';
+      width: 40px;
+      height: 4px;
       background: var(--primary);
+      border-radius: 2px;
     }
 
     .paragraph p {
-      color: var(--text-dim);
       font-size: 1.1rem;
-    }
-
-    /* Decorazione di sfondo chiara */
-    .glow-sphere {
-      background: radial-gradient(circle, rgba(82, 183, 136, 0.15), transparent 70%);
+      color: var(--text-dim);
+      text-align: justify;
+      margin-bottom: 10px;
     }
 
     footer {
-      background: #f1f5f2;
+      text-align: center;
+      padding: 60px 20px;
+      background: #f1f8f4;
       border-top: 1px solid var(--glass-border);
       color: #8fa19e;
+      font-size: 0.9rem;
     }
-</style>
+
+    .glow-sphere {
+      position: absolute;
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, rgba(82, 183, 136, 0.1), transparent 70%);
+      top: 20%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      pointer-events: none;
+      z-index: -1;
+    }
+  </style>
 </head>
 
 <body>
@@ -150,9 +213,9 @@
 <header class="navbar">
   <div class="logo">CSA <span>MODERN</span></div>
   <nav>
-    <a href="sostenibilita.html">Home</a>
-    <a href="finalita.html">Finalità</a>
-    <a href="ChiSiamo.html">Chi Siamo</a>
+    <a href="#">Home</a>
+    <a href="#">Finalità</a>
+    <a href="#">Chi Siamo</a>
   </nav>
 </header>
 
@@ -163,8 +226,7 @@
 </section>
 
 <div class="cylinder-wrapper">
-  <div class="cylinder" id="cylinder">
-    </div>
+  <div class="cylinder" id="cylinder"></div>
 </div>
 
 <div class="container">
@@ -181,11 +243,11 @@
 
     <h3 class="title">Gli Obiettivi dell'Informatica Verde</h3>
     <p>
-      Per trasformare il settore IT in senso sostenibile, il Green Computing si pone quattro traguardi fondamentali:
-      • Efficienza energetica: Migliorare l'architettura dei processori e del software affinché richiedano meno elettricità.
-      • Riduzione degli e-waste: Contrastare l'accumulo di rifiuti elettronici favorendo il riciclo dei componenti e l'uso di materiali sicuri.
-      • Progettazione sostenibile: Creare prodotti più longevi e facili da riparare per rallentare l'obsolescenza tecnologica.
-      • Cloud Computing verde: Centralizzare l'elaborazione dati in infrastrutture ottimizzate, riducendo la necessità di server locali meno efficienti.
+      Per trasformare il settore IT in senso sostenibile, il Green Computing si pone quattro traguardi fondamentali:<br>
+      • <strong>Efficienza energetica:</strong> Migliorare l'architettura dei processori e del software affinché richiedano meno elettricità.<br>
+      • <strong>Riduzione degli e-waste:</strong> Contrastare l'accumulo di rifiuti elettronici favorendo il riciclo dei componenti e l'uso di materiali sicuri.<br>
+      • <strong>Progettazione sostenibile:</strong> Creare prodotti più longevi e facili da riparare per rallentare l'obsolescenza tecnologica.<br>
+      • <strong>Cloud Computing verde:</strong> Centralizzare l'elaborazione dati in infrastrutture ottimizzate, riducendo la necessità di server locali meno efficienti.
     </p>
 
     <h3 class="title">Strategie Concrete e Implementazione</h3>
@@ -208,7 +270,6 @@
   document.addEventListener('DOMContentLoaded', () => {
     const cylinder = document.getElementById('cylinder');
     
-    // Contenuti per le card (al posto delle immagini)
     const cardData = [
       { icon: '♻️', text: 'E-Waste' },
       { icon: '🔋', text: 'Efficiency' },
@@ -221,7 +282,6 @@
     const totalCards = cardData.length;
     const angleStep = 360 / totalCards;
 
-    // Generazione dinamica
     cardData.forEach((data, i) => {
       const card = document.createElement('div');
       card.className = 'cylinder-card';
@@ -233,13 +293,11 @@
     let currentAngle = 0;
 
     function animate() {
-      currentAngle += 0.4; // Velocità di rotazione
+      currentAngle += 0.4; 
       cards.forEach((card, i) => {
         const cardAngle = i * angleStep + currentAngle;
-        // Posizionamento nel cerchio 3D
         card.style.transform = `rotateY(${cardAngle}deg) translateZ(350px)`;
         
-        // Effetto dissolvenza per le card sul retro
         const normalizedAngle = (cardAngle % 360 + 360) % 360;
         card.style.opacity = (normalizedAngle > 90 && normalizedAngle < 270) ? "0.2" : "1";
       });
