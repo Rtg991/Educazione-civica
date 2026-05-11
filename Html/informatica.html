@@ -3,9 +3,19 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CSA MODERN</title>
+  <title>CSA MODERN | Sostenibilità Digitale</title>
+  
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
 
   <style>
+    :root {
+      --primary: #00ffaa;
+      --accent: #00d4ff;
+      --bg-dark: #081c15;
+      --glass: rgba(255, 255, 255, 0.03);
+      --glass-border: rgba(255, 255, 255, 0.1);
+    }
+
     * {
       margin: 0;
       padding: 0;
@@ -14,240 +24,285 @@
     }
 
     body {
-  /* Sfumatura da un verde foresta a un verde scurissimo */
-  background: linear-gradient(135deg, #1b4332 0%, #081c15 100%);
-  
-  /* Mantiene lo sfondo fisso durante lo scroll */
-  background-attachment: fixed;
-  min-height: 100vh;
-  
-  /* Il testo deve essere chiaro per contrastare lo sfondo scuro */
-  color: #e0e0e0; 
-  
-  overflow-x: hidden;
-  margin: 0;
-  font-family: Arial, sans-serif;
-}
+      background: radial-gradient(circle at top right, #1b4332, #081c15);
+      background-attachment: fixed;
+      color: #e0e0e0;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
 
-    /* NAVBAR */
+    /* NAVBAR STILIZZATA */
     .navbar {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 30px 8%;
-      background: linear-gradient(135deg, #1b4332 0%, #081c15 100%);
-      backdrop-filter: blur(10px);
+      padding: 20px 8%;
+      background: rgba(8, 28, 21, 0.8);
+      backdrop-filter: blur(15px);
       position: sticky;
       top: 0;
       z-index: 1000;
-    }
-
-    .navbar nav {
-      display: flex;
-      gap: 30px;
-    }
-
-    .navbar nav a {
-      color: #8fa19e;
-      text-decoration: none;
-      transition: 0.3s;
-    }
-
-    .navbar nav a:hover {
-      color: #00ffaa;
+      border-bottom: 1px solid var(--glass-border);
     }
 
     .logo {
       font-weight: 800;
-      font-size: 24px;
+      font-size: 22px;
+      letter-spacing: -1px;
       color: #fff;
     }
 
-    /* HERO */
-    .hero {
-      display: flex;
-      align-items: flex-start;
-      justify-content: center;
-      text-align: center;
-      position: relative;
-      padding-top: 40px;
-      height: 10px;
-      min-height: 40vh;
-    }
+    .logo span { color: var(--primary); }
 
-    .hero h1 {
-      font-size: clamp(40px, 8vw, 75px);
-      margin: 0;
-    }
+    .navbar nav { display: flex; gap: 30px; }
 
-    .hero span {
-      color: #00ffaa;
-    }
-
-    .glow {
-      position: absolute;
-      width: 600px;
-      height: 600px;
-      background: radial-gradient(circle, rgba(0,255,170,0.15), transparent 70%);
-      top: 30%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      filter: blur(120px);
-      z-index: -1;
-    }
-
-    /* PARAGRAFO SISTEMATO */
-    .paragraph {
-      background: rgba(255,255,255,0.03);
-      border: 1px solid rgba(255,255,255,0.1);
-      padding: 25px;
-      border-radius: 30px;
-      backdrop-filter: blur(20px);
-      width: 60%;
-      margin: -50px auto 80px auto;
-      text-align: center;
-      transition: 0.3s;      
-    }
-
-    .paragraph:hover {
-      transform: translateY(-10px) scale(1.03);
-      border-color: #00ffaa;
-      box-shadow: 0 0 25px #00ffaa;
-    }
-
-    .paragraph .title {
-      margin-bottom: 15px;
+    .navbar nav a {
+      color: #8fa19e;
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
       transition: 0.3s;
     }
 
-    .paragraph:hover .title {
-      color: #00ffaa;
+    .navbar nav a:hover { color: var(--primary); text-shadow: 0 0 8px var(--primary); }
+
+    /* HERO AREA */
+    .hero {
+      padding: 80px 20px 20px;
+      text-align: center;
+      position: relative;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.5rem, 8vw, 4.5rem);
+      font-weight: 800;
+      background: linear-gradient(to bottom, #fff, #8fa19e);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 10px;
+    }
+
+    .hero-subtitle {
+      color: var(--primary);
+      text-transform: uppercase;
+      letter-spacing: 5px;
+      font-weight: 700;
+      font-size: 0.9rem;
+    }
+
+    /* CILINDRO DINAMICO (Card di vetro) */
+    .cylinder-wrapper {
+      height: 500px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      perspective: 2000px;
+      margin-top: -50px;
+    }
+
+    .cylinder {
+      position: relative;
+      width: 200px;
+      height: 300px;
+      transform-style: preserve-3d;
+    }
+
+    .cylinder-card {
+      position: absolute;
+      width: 240px;
+      height: 320px;
+      background: linear-gradient(135deg, rgba(255,255,255,0.05), rgba(255,255,255,0.01));
+      border: 1px solid var(--glass-border);
+      border-radius: 24px;
+      backdrop-filter: blur(10px);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 30px;
+      transition: border 0.4s, box-shadow 0.4s;
+    }
+
+    .cylinder-card:hover {
+      border-color: var(--primary);
+      box-shadow: 0 0 30px rgba(0, 255, 170, 0.2);
+    }
+
+    .cylinder-card .icon {
+      font-size: 3rem;
+      margin-bottom: 15px;
+      filter: drop-shadow(0 0 10px var(--primary));
+    }
+
+    .cylinder-card h4 {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: var(--primary);
+    }
+
+    /* CONTENUTO TESTUALE OTTIMIZZATO */
+    .container {
+      max-width: 900px;
+      margin: 0 auto 100px;
+      padding: 0 20px;
+    }
+
+    .paragraph {
+      background: var(--glass);
+      border: 1px solid var(--glass-border);
+      padding: 60px;
+      border-radius: 40px;
+      backdrop-filter: blur(20px);
+      box-shadow: 0 25px 50px rgba(0,0,0,0.3);
+      position: relative;
+    }
+
+    .paragraph .title {
+      font-size: 2rem;
+      color: #fff;
+      margin-bottom: 30px;
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .paragraph .title::before {
+      content: '';
+      width: 40px;
+      height: 4px;
+      background: var(--primary);
+      border-radius: 2px;
+    }
+
+    .paragraph p {
+      font-size: 1.1rem;
+      color: #cbd5d1;
+      text-align: justify;
+    }
+
+    .paragraph b {
+      color: var(--primary);
+      font-weight: 600;
     }
 
     footer {
       text-align: center;
       padding: 60px 20px;
-      border-top: 1px solid rgba(255,255,255,0.05);
+      border-top: 1px solid var(--glass-border);
+      color: #556b66;
+      font-size: 0.9rem;
     }
 
-
-    /* CILINDRO */
-.cylinder-wrapper {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 190px ;
-  perspective: 1200px;
-  overflow: hidden;
-  background: radial-gradient(ellipse at center, #007fff33 0%, #00aaff11 40%, transparent 70%);
-  position: relative; /* aggiunge questo */
-}
-
-.cylinder {
-  position: relative;
-  width: 150px;
-  height: 420px;
-  transform-style: preserve-3d;
-}
-
-.cylinder-card {
-  position: absolute;
-  /* Dimensioni dinamiche basate sulla viewport o fisse ma proporzionate */
-  width: 280px;  
-  height: 380px; 
-  top: 50%;
-  left: 50%;
-  /* Centratura perfetta prima della trasformazione JS */
-  margin-left: -140px; 
-  margin-top: -190px;
-  
-  overflow: hidden;
-  border-radius: 8px; /* Arrotondato sta meglio con il design moderno */
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-  
-  /* Migliora la resa visiva durante la rotazione */
-  backface-visibility: visible; 
-}
-
-.cylinder-card img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover; /* Riempie lo spazio senza deformare */
-  display: block;
-}
-
-.cylinder-card img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-@keyframes rotateCylinder {
-  from { transform: rotateY(0deg); }
-  to   { transform: rotateY(-360deg); }
-}
-
-
+    /* Effetto Glow di Sfondo */
+    .glow-sphere {
+      position: absolute;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(0, 255, 170, 0.07), transparent 70%);
+      top: 20%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      pointer-events: none;
+      z-index: -1;
+    }
   </style>
 </head>
 
 <body>
 
 <header class="navbar">
-  <div class="logo">CSA MODERN</div>
+  <div class="logo">CSA <span>MODERN</span></div>
   <nav>
-    <a href="sostenibilita.html">Home</a>
-    <a href="finalita.html">Finalità e Progetto</a>
-    <a href="ChiSiamo.html">Chi siamo</a>
+    <a href="#">Home</a>
+    <a href="#">Progetto</a>
+    <a href="#">Chi siamo</a>
   </nav>
 </header>
 
 <section class="hero">
-  <div class="glow"></div>
-  <div class="content">
-    <h1>Aziende informatiche sostenibili</h1>
-  </div>
+  <div class="glow-sphere"></div>
+  <span class="hero-subtitle">Eco-Tech Future</span>
+  <h1>Aziende Informatiche Sostenibili</h1>
 </section>
 
-<section>
-  <div class="paragraph">
-    <h3 class="title">Aziende informatiche sostenibili</h3>
+<div class="cylinder-wrapper">
+  <div class="cylinder" id="cylinder">
+    </div>
+</div>
+
+<div class="container">
+  <section class="paragraph">
+    <h3 class="title">Innovazione e Responsabilità</h3>
     <p>
-      L'impegno delle Big Tech per la neutralità carbonica: Adobe, Meta e Apple<br><br>
-Le grandi aziende tecnologiche stanno guidando la transizione ecologica attraverso obiettivi ambiziosi di decarbonizzazione. Adobe, Meta (Facebook) e Apple hanno già raggiunto la neutralità carbonica per le loro operazioni globali. Questo risultato è stato ottenuto alimentando il 100% dei loro uffici e data center con energie rinnovabili e investendo in progetti di compensazione. Mentre Apple si concentra sull'intera catena di approvvigionamento e sull'uso di materiali riciclati per i suoi dispositivi, Meta sostiene attivamente la sostenibilità tramite il Facebook Sustainability Fund, dimostrando come la gestione delle infrastrutture digitali possa essere compatibile con la salvaguardia dell'ambiente.<br><br>
+      <b>L'impegno delle Big Tech per la neutralità carbonica: Adobe, Meta e Apple</b><br><br>
+      Le grandi aziende tecnologiche stanno guidando la transizione ecologica attraverso obiettivi ambiziosi di decarbonizzazione. Adobe, Meta (Facebook) e Apple hanno già raggiunto la neutralità carbonica per le loro operazioni globali. Questo risultato è stato ottenuto alimentando il 100% dei loro uffici e data center con energie rinnovabili e investendo in progetti di compensazione. Mentre Apple si concentra sull'intera catena di approvvigionamento e sull'uso di materiali riciclati per i suoi dispositivi, Meta sostiene attivamente la sostenibilità tramite il Facebook Sustainability Fund, dimostrando come la gestione delle infrastrutture digitali possa essere compatibile con la salvaguardia dell'ambiente.<br><br>
 
-Verso un impatto positivo: La strategia "Carbon Negative" di Microsoft<br><br>
-Microsoft si spinge oltre il concetto di neutralità, ponendosi l'obiettivo di diventare "carbon negativa" entro il 2030. Ciò significa che l'azienda si impegna a rimuovere dall'atmosfera più carbonio di quanto ne emetta con le proprie attività. Attraverso GitHub, Microsoft promuove inoltre lo sviluppo di software open-source dedicato alla lotta contro il cambiamento climatico. Questo approccio trasforma la tecnologia da fonte di emissioni a strumento attivo per la rigenerazione ambientale, sfruttando l'efficienza energetica del cloud e del software per migliorare l'impatto globale del settore IT.<br><br>
+      <b>Verso un impatto positivo: La strategia "Carbon Negative" di Microsoft</b><br><br>
+      Microsoft si spinge oltre il concetto di neutralità, ponendosi l'obiettivo di diventare "carbon negativa" entro il 2030. Ciò significa che l'azienda si impegna a rimuovere dall'atmosfera più carbonio di quanto ne emetta con le proprie attività. Attraverso GitHub, Microsoft promuove inoltre lo sviluppo di software open-source dedicato alla lotta contro il cambiamento climatico. Questo approccio trasforma la tecnologia da fonte di emissioni a strumento attivo per la rigenerazione ambientale, sfruttando l'efficienza energetica del cloud e del software per migliorare l'impatto globale del settore IT.<br><br>
 
-Efficienza hardware e innovazione open-source: Nvidia e Red Hat<br><br>
-Il settore dell'hardware e del software infrastrutturale gioca un ruolo cruciale nella riduzione dei consumi. Nvidia si focalizza sulla progettazione di chip grafici ad altissima efficienza energetica, essenziali per ridurre il carico elettrico dei moderni data center e dei dispositivi di gioco. Parallelamente, Red Hat promuove l'utilizzo di tecnologie open-source per ottimizzare la gestione delle risorse informatiche. Entrambe le aziende lavorano per ridurre le emissioni operative, dimostrando che l'innovazione tecnologica deve andare di pari passo con la sostenibilità dei materiali e l'ottimizzazione dei processi computazionali.
+      <b>Efficienza hardware e innovazione open-source: Nvidia e Red Hat</b><br><br>
+      Il settore dell'hardware e del software infrastrutturale gioca un ruolo cruciale nella riduzione dei consumi. Nvidia si focalizza sulla progettazione di chip grafici ad altissima efficienza energetica, essenziali per ridurre il carico elettrico dei moderni data center e dei dispositivi di gioco. Parallelamente, Red Hat promuove l'utilizzo di tecnologie open-source per ottimizzare la gestione delle risorse informatiche. Entrambe le aziende lavorano per ridurre le emissioni operative, dimostrando che l'innovazione tecnologica deve andare di pari passo con la sostenibilità dei materiali e l'ottimizzazione dei processi computazionali.
     </p>
-  </div>
-</section>
-<!-- CILINDRO -->
-       
+  </section>
+</div>
+
 <footer>
-  <p>© 2026 CSA MODERN - La Terra</p>
+  <p>© 2026 CSA MODERN — Focus on Sustainability</p>
 </footer>
 
-</body>
-<script>document.addEventListener('DOMContentLoaded', () => {
-  const cards = document.querySelectorAll('.cylinder-card');
-  const totalCards = cards.length;
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const cylinder = document.getElementById('cylinder');
+  
+  // Dati per le card del cilindro
+  const companies = [
+    { name: 'Apple', icon: '🍏' },
+    { name: 'Microsoft', icon: '💻' },
+    { name: 'Meta', icon: '♾️' },
+    { name: 'Nvidia', icon: '⚡' },
+    { name: 'Adobe', icon: '🎨' },
+    { name: 'Red Hat', icon: '⛑️' }
+  ];
+
+  const totalCards = companies.length;
   const angleStep = 360 / totalCards;
+  
+  // Creazione dinamica delle card
+  companies.forEach((comp, i) => {
+    const card = document.createElement('div');
+    card.className = 'cylinder-card';
+    card.innerHTML = `<div class="icon">${comp.icon}</div><h4>${comp.name}</h4>`;
+    cylinder.appendChild(card);
+  });
+
+  const cards = document.querySelectorAll('.cylinder-card');
   let currentAngle = 0;
 
   function animate() {
-    currentAngle += 0.3;
+    currentAngle += 0.4; // Velocità di rotazione
     cards.forEach((card, i) => {
       const cardAngle = i * angleStep + currentAngle;
-      card.style.transform = `rotateY(${cardAngle}deg) translateZ(450px) rotateY(${-cardAngle + 105}deg)`;
+      // Posizionamento nel cerchio 3D
+      card.style.transform = `rotateY(${cardAngle}deg) translateZ(380px)`;
+      
+      // Effetto dissolvenza per le card sul retro
+      const normalizedAngle = (cardAngle % 360 + 360) % 360;
+      if (normalizedAngle > 90 && normalizedAngle < 270) {
+        card.style.opacity = "0.15";
+      } else {
+        card.style.opacity = "1";
+      }
     });
     requestAnimationFrame(animate);
   }
 
   animate();
 });
-  </script>
+</script>
+
+</body>
 </html>
