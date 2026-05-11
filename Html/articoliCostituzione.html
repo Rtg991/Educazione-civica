@@ -1,11 +1,36 @@
+Certamente! Per rendere la pagina più "stilosat" senza l'uso di file immagine esterni, punteremo tutto su tipografia, contrasti cromatici, micro-interazioni e geometrie CSS.
+
+Ho aggiornato il codice per includere:
+
+Vetro-morfismo (Glassmorphism): Effetti di trasparenza e sfocatura più marcati.
+
+Gradienti Animati: Lo sfondo non è più statico ma "vive".
+
+Tipografia Moderna: Ho inserito il font 'Inter' da Google Fonts.
+
+Effetti Hover Evoluti: Le card reagiscono in modo più fluido.
+
+Cilindro 3D Astratto: Al posto delle immagini, ho usato dei "pannelli di vetro" colorati con icone testuali/emoji che creano un effetto futuristico.
+
+HTML
 <!DOCTYPE html>
 <html lang="it">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CSA MODERN</title>
+  <title>CSA MODERN | Costituzione & Sostenibilità</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;800&display=swap" rel="stylesheet">
 
   <style>
+    :root {
+      --primary: #00ffaa;
+      --primary-glow: rgba(0, 255, 170, 0.4);
+      --bg-dark: #081c15;
+      --bg-light: #1b4332;
+      --glass: rgba(255, 255, 255, 0.05);
+      --glass-border: rgba(255, 255, 255, 0.1);
+    }
+
     * {
       margin: 0;
       padding: 0;
@@ -14,180 +39,172 @@
     }
 
     body {
-  /* Sfumatura da un verde foresta a un verde scurissimo */
-  background: linear-gradient(135deg, #1b4332 0%, #081c15 100%);
-  
-  /* Mantiene lo sfondo fisso durante lo scroll */
-  background-attachment: fixed;
-  min-height: 100vh;
-  
-  /* Il testo deve essere chiaro per contrastare lo sfondo scuro */
-  color: #e0e0e0; 
-  
-  overflow-x: hidden;
-  margin: 0;
-  font-family: Arial, sans-serif;
-}
+      background: linear-gradient(-45deg, #081c15, #1b4332, #0d2a1f, #05140f);
+      background-size: 400% 400%;
+      animation: gradientBG 15s ease infinite;
+      color: #e0e0e0;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    @keyframes gradientBG {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
 
     /* NAVBAR */
     .navbar {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 30px 8%;
-      background: linear-gradient(135deg, #1b4332 0%, #081c15 100%);
-      backdrop-filter: blur(10px);
+      padding: 20px 8%;
+      background: rgba(8, 28, 21, 0.8);
+      backdrop-filter: blur(15px);
       position: sticky;
       top: 0;
       z-index: 1000;
-    }
-
-    .navbar nav {
-      display: flex;
-      gap: 30px;
-    }
-
-    .navbar nav a {
-      color: #8fa19e;
-      text-decoration: none;
-      transition: 0.3s;
-    }
-
-    .navbar nav a:hover {
-      color: #00ffaa;
+      border-bottom: 1px solid var(--glass-border);
     }
 
     .logo {
       font-weight: 800;
-      font-size: 24px;
+      font-size: 1.5rem;
+      letter-spacing: -1px;
       color: #fff;
+      text-transform: uppercase;
     }
+
+    .logo span { color: var(--primary); }
+
+    .navbar nav { display: flex; gap: 30px; }
+
+    .navbar nav a {
+      color: #8fa19e;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 0.9rem;
+      transition: 0.3s;
+      position: relative;
+    }
+
+    .navbar nav a:hover { color: var(--primary); }
 
     /* HERO */
     .hero {
-      display: flex;
-      align-items: flex-start;
-      justify-content: center;
+      padding: 100px 20px 60px;
       text-align: center;
       position: relative;
-      padding-top: 40px;
-      height: 10px;
-      min-height: 40vh;
     }
 
     .hero h1 {
-      font-size: clamp(40px, 8vw, 75px);
-      margin: 0;
+      font-size: clamp(2.5rem, 8vw, 5rem);
+      font-weight: 800;
+      line-height: 1.1;
+      margin-bottom: 20px;
+      background: linear-gradient(to bottom, #fff, #8fa19e);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
 
-    .hero span {
-      color: #00ffaa;
+    .hero p {
+      color: var(--primary);
+      text-transform: uppercase;
+      letter-spacing: 4px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      margin-bottom: 10px;
     }
 
-    .glow {
+    /* CONTENUTO ARTICOLI */
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 20px 100px;
+    }
+
+    .card {
+      background: var(--glass);
+      border: 1px solid var(--glass-border);
+      border-radius: 24px;
+      padding: 40px;
+      margin-bottom: 40px;
+      backdrop-filter: blur(10px);
+      transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), border 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-10px);
+      border-color: var(--primary);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.4), 0 0 20px var(--primary-glow);
+    }
+
+    .card h2 {
+      color: var(--primary);
+      margin-bottom: 20px;
+      font-size: 1.8rem;
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .card p {
+      font-size: 1.1rem;
+      color: #c9d1d0;
+      text-align: justify;
+    }
+
+    /* CILINDRO 3D ASTRATTO (No Immagini) */
+    .cylinder-section {
+      height: 500px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      perspective: 1500px;
+      margin-bottom: 100px;
+    }
+
+    .cylinder {
+      position: relative;
+      width: 200px;
+      height: 300px;
+      transform-style: preserve-3d;
+    }
+
+    .cylinder-card {
       position: absolute;
-      width: 600px;
-      height: 600px;
-      background: radial-gradient(circle, rgba(0,255,170,0.15), transparent 70%);
-      top: 30%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      filter: blur(120px);
-      z-index: -1;
+      width: 200px;
+      height: 280px;
+      left: 0;
+      top: 0;
+      background: linear-gradient(135deg, rgba(0,255,170,0.1), rgba(255,255,255,0.05));
+      border: 1px solid var(--primary);
+      border-radius: 15px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      backdrop-filter: blur(5px);
+      color: var(--primary);
+      font-size: 3rem;
+      box-shadow: 0 0 15px var(--primary-glow);
     }
 
-    /* PARAGRAFO SISTEMATO */
-    .paragraph {
-      background: rgba(255,255,255,0.03);
-      border: 1px solid rgba(255,255,255,0.1);
-      padding: 25px;
-      border-radius: 30px;
-      backdrop-filter: blur(20px);
-      width: 60%;
-      margin: -50px auto 80px auto;
-      text-align: center;
-      transition: 0.3s;      
-    }
-
-    .paragraph:hover {
-      transform: translateY(-10px) scale(1.03);
-      border-color: #00ffaa;
-      box-shadow: 0 0 25px #00ffaa;
-    }
-
-    .paragraph .title {
-      margin-bottom: 15px;
-      transition: 0.3s;
-    }
-
-    .paragraph:hover .title {
-      color: #00ffaa;
+    .cylinder-card span {
+      font-size: 0.8rem;
+      color: #fff;
+      margin-top: 10px;
+      font-weight: bold;
+      text-transform: uppercase;
     }
 
     footer {
       text-align: center;
-      padding: 60px 20px;
-      border-top: 1px solid rgba(255,255,255,0.05);
+      padding: 50px;
+      font-size: 0.8rem;
+      color: #556b66;
+      border-top: 1px solid var(--glass-border);
     }
-
-
-    /* CILINDRO */
-.cylinder-wrapper {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 190px ;
-  perspective: 1200px;
-  overflow: hidden;
-  background: radial-gradient(ellipse at center, #007fff33 0%, #00aaff11 40%, transparent 70%);
-  position: relative; /* aggiunge questo */
-}
-
-.cylinder {
-  position: relative;
-  width: 150px;
-  height: 420px;
-  transform-style: preserve-3d;
-}
-
-.cylinder-card {
-  position: absolute;
-  /* Dimensioni dinamiche basate sulla viewport o fisse ma proporzionate */
-  width: 280px;  
-  height: 380px; 
-  top: 50%;
-  left: 50%;
-  /* Centratura perfetta prima della trasformazione JS */
-  margin-left: -140px; 
-  margin-top: -190px;
-  
-  overflow: hidden;
-  border-radius: 8px; /* Arrotondato sta meglio con il design moderno */
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-  
-  /* Migliora la resa visiva durante la rotazione */
-  backface-visibility: visible; 
-}
-
-.cylinder-card img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover; /* Riempie lo spazio senza deformare */
-  display: block;
-}
-
-.cylinder-card img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-@keyframes rotateCylinder {
-  from { transform: rotateY(0deg); }
-  to   { transform: rotateY(-360deg); }
-}
-
 
   </style>
 </head>
@@ -195,55 +212,74 @@
 <body>
 
 <header class="navbar">
-  <div class="logo">CSA MODERN</div>
+  <div class="logo">CSA<span>MODERN</span></div>
   <nav>
-    <a href="sostenibilita.html">Home</a>
-    <a href="finalita.html">Finalità e Progetto</a>
-    <a href="ChiSiamo.html">Chi siamo</a>
+    <a href="#">Home</a>
+    <a href="#">Progetto</a>
+    <a href="#">Chi siamo</a>
   </nav>
 </header>
 
 <section class="hero">
-  <div class="glow"></div>
-  <div class="content">
-    <h1>Articoli della costituzione sullo sviluppo sostenibile</h1>
-  </div>
+  <p>Costituzione Italiana</p>
+  <h1>Sviluppo<br>Sostenibile</h1>
 </section>
 
-<section>
-  <div class="paragraph">
-    <h3 class="title">Articoli della costituzione sullo sviluppo sostenibile</h3>
-    <p>
-      Articolo 9: La Tutela dell'Ambiente e delle Generazioni Future<br>
-      L'articolo 9 è stato profondamente innovato per elevare la protezione dell'ecosistema a principio fondamentale della Repubblica. Il testo stabilisce che lo Stato non si limita più a tutelare il paesaggio e il patrimonio storico-artistico, ma estende il suo dovere alla tutela dell'ambiente, della biodiversità e degli ecosistemi. Il passaggio più rivoluzionario è il riferimento esplicito all'interesse delle future generazioni: per la prima volta, la Costituzione riconosce un dovere di responsabilità verso chi vivrà il pianeta domani, imponendo una gestione delle risorse che non ne comprometta la disponibilità futura. Viene inoltre introdotta una riserva di legge per la protezione degli animali, sottolineando una visione della natura non più solo come sfondo, ma come sistema vivente da proteggere.<br><br>
+<div class="cylinder-section">
+  <div class="cylinder" id="cylinder">
+    </div>
+</div>
 
-      Articolo 41: I Nuovi Limiti all'Iniziativa Economica<br>
-      L'articolo 41 delinea il rapporto tra libertà d'impresa e responsabilità ecologica. Sebbene l'iniziativa economica privata resti libera, la riforma ha inserito la salute e l'ambiente come limiti invalicabili, affiancandoli ai precedenti concetti di sicurezza, libertà e dignità umana. Questo significa che nessuna attività produttiva può essere considerata legittima se arreca danno agli ecosistemi o alla salute pubblica. Inoltre, il terzo comma stabilisce che la legge può indirizzare e coordinare l'attività economica, sia pubblica che privata, non solo verso fini sociali, ma anche verso fini ambientali. In questo modo, la sostenibilità diventa un parametro vincolante per l'agire economico, trasformando la protezione del pianeta in una precondizione necessaria per fare impresa in Italia.
+<div class="container">
+  <div class="card">
+    <h2><span>09</span> Articolo 9</h2>
+    <p>
+      L'articolo 9 è stato profondamente innovato per elevare la protezione dell'ecosistema a principio fondamentale. Lo Stato estende il suo dovere alla tutela dell'ambiente, della biodiversità e degli ecosistemi, introducendo una responsabilità esplicita verso le <strong>future generazioni</strong>.
     </p>
   </div>
-</section>
+
+  <div class="card">
+    <h2><span>41</span> Articolo 41</h2>
+    <p>
+      L'iniziativa economica privata è libera, ma non può svolgersi in contrasto con l'utilità sociale o in modo da recare danno alla <strong>salute</strong> e all'<strong>ambiente</strong>. La sostenibilità diventa un parametro vincolante per l'agire economico.
+    </p>
+  </div>
+</div>
 
 <footer>
-  <p>© 2026 CSA MODERN - La Terra</p>
+  <p>© 2026 CSA MODERN — Custodi del Futuro</p>
 </footer>
 
-</body>
-<script>document.addEventListener('DOMContentLoaded', () => {
-  const cards = document.querySelectorAll('.cylinder-card');
-  const totalCards = cards.length;
+<script>
+  const cylinder = document.getElementById('cylinder');
+  const icons = ['🌿', '⚖️', '🌍', '🇮🇹', '☀️', '🧬'];
+  const labels = ['Ambiente', 'Giustizia', 'Pianeta', 'Stato', 'Energia', 'Futuro'];
+  const totalCards = icons.length;
   const angleStep = 360 / totalCards;
+
+  // Crea i pannelli del cilindro
+  for (let i = 0; i < totalCards; i++) {
+    const card = document.createElement('div');
+    card.className = 'cylinder-card';
+    card.innerHTML = `${icons[i]} <span>${labels[i]}</span>`;
+    cylinder.appendChild(card);
+  }
+
+  const cards = document.querySelectorAll('.cylinder-card');
   let currentAngle = 0;
 
   function animate() {
-    currentAngle += 0.3;
+    currentAngle -= 0.5; // Velocità rotazione
     cards.forEach((card, i) => {
       const cardAngle = i * angleStep + currentAngle;
-      card.style.transform = `rotateY(${cardAngle}deg) translateZ(450px) rotateY(${-cardAngle + 105}deg)`;
+      // Posiziona le card in cerchio (raggio 300px)
+      card.style.transform = `rotateY(${cardAngle}deg) translateZ(300px)`;
     });
     requestAnimationFrame(animate);
   }
 
   animate();
-});
-  </script>
+</script>
+
+</body>
 </html>
