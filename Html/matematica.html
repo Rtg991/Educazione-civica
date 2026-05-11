@@ -197,4 +197,110 @@
     footer {
       text-align: center;
       padding: 60px 20px;
-      border-top: 1px solid var(--glass-
+      border-top: 1px solid var(--glass-border);
+      color: #556b66;
+      font-size: 0.9rem;
+    }
+
+    /* Effetto Glow */
+    .glow {
+      position: absolute;
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, rgba(0, 255, 170, 0.08), transparent 70%);
+      top: 20%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: -1;
+      pointer-events: none;
+    }
+  </style>
+</head>
+
+<body>
+
+<header class="navbar">
+  <div class="logo">CSA <span>MODERN</span></div>
+  <nav>
+    <a href="#">Home</a>
+    <a href="#">Progetto</a>
+    <a href="#">Chi siamo</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <div class="glow"></div>
+  <span class="hero-subtitle">Eccellenza Siciliana</span>
+  <h1>Azienda LBG</h1>
+</section>
+
+<div class="cylinder-wrapper">
+  <div class="cylinder" id="cylinder">
+    </div>
+</div>
+
+<div class="container">
+  <div class="paragraph">
+    <h3 class="title">La Storia e l'Innovazione</h3>
+    <p>
+      LBG Sicilia è un’azienda con sede a Ragusa specializzata nella produzione di ingredienti alimentari naturali, come la farina di semi di carrubo, proteine e fibre, utilizzati in gelati, prodotti lattiero-caseari, dolci, preparazioni vegane e alimenti senza glutine. Fondata nel 2001 da Giovanni Carlo Licitra, l’azienda ha radici familiari che risalgono agli anni ’50 e oggi esporta in oltre 90 paesi, diventando uno dei principali produttori mondiali nel settore. I suoi prodotti sono naturali, privi di OGM, e l’azienda punta molto sulla ricerca e sull’innovazione per offrire ingredienti sicuri e funzionali. La sostenibilità è un aspetto centrale: LBG Sicilia ottimizza i processi produttivi, riduce l’impatto ambientale e valorizza le risorse locali. L’azienda è anche attiva nel sociale, come dimostra la donazione di 25.000 euro al Comune di Ragusa durante la pandemia da COVID-19. Il fondatore Giovanni Carlo Licitra ha trasformato un’attività familiare in una realtà internazionale, ricevendo riconoscimenti importanti per il suo contributo all’industria e alla comunità locale.
+    </p>
+  </div>
+</div>
+
+<footer>
+  <p>© 2026 CSA MODERN — Focus on LBG Sicilia</p>
+</footer>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const cylinder = document.getElementById('cylinder');
+    
+    // Dati per i pannelli (Icone ed Etichette)
+    const data = [
+      { icon: '🌱', label: 'Carruba Naturale' },
+      { icon: '🌍', label: '90+ Paesi' },
+      { icon: '🧪', label: 'Ricerca & Sviluppo' },
+      { icon: '🍦', label: 'Food Solutions' },
+      { icon: '🛡️', label: 'Qualità No-OGM' },
+      { icon: '🤝', label: 'Sociale & Locale' }
+    ];
+
+    const totalCards = data.length;
+    const angleStep = 360 / totalCards;
+    
+    // Creazione dinamica delle card
+    data.forEach((item, i) => {
+      const card = document.createElement('div');
+      card.className = 'cylinder-card';
+      card.innerHTML = `<div class="icon">${item.icon}</div><h4>${item.label}</h4>`;
+      cylinder.appendChild(card);
+    });
+
+    const cards = document.querySelectorAll('.cylinder-card');
+    let currentAngle = 0;
+
+    function animate() {
+      currentAngle += 0.4; // Velocità rotazione
+      cards.forEach((card, i) => {
+        const cardAngle = i * angleStep + currentAngle;
+        // Posizionamento nel cerchio 3D (Z=400px per profondità)
+        card.style.transform = `rotateY(${cardAngle}deg) translateZ(350px)`;
+        
+        // Effetto dissolvenza per le card sul retro
+        const normalizedAngle = (cardAngle % 360 + 360) % 360;
+        if (normalizedAngle > 90 && normalizedAngle < 270) {
+          card.style.opacity = "0.2";
+        } else {
+          card.style.opacity = "1";
+        }
+      });
+      requestAnimationFrame(animate);
+    }
+
+    animate();
+  });
+</script>
+
+</body>
+</html>
