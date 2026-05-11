@@ -145,37 +145,68 @@
       letter-spacing: 1px;
     }
 
-    /* PARAGRAFO ESTESO */
+/* PARAGRAFO ESTESO - STILE ORIGINALE COORDINATO */
+    .container {
+      max-width: 950px; /* Un po' più largo per maggiore leggibilità */
+      margin: 0 auto 100px;
+      padding: 0 20px;
+    }
+
     .paragraph {
-      background: rgba(15, 23, 42, 0.4); /* Sfondo ardesia trasparente */
+      background: linear-gradient(160deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0) 100%);
       border: 1px solid var(--glass-border);
+      padding: 60px;
+      border-radius: 40px;
+      backdrop-filter: blur(30px);
+      box-shadow: 0 40px 100px rgba(0,0,0,0.5); /* Ombra profonda originale */
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Le virgolette decorative originali con il nuovo colore */
+    .paragraph::before {
+      content: '"';
+      position: absolute;
+      top: 10px;
+      left: 30px;
+      font-size: 150px;
+      color: rgba(0, 212, 255, 0.07); /* Ciano molto tenue */
+      font-family: serif;
+      line-height: 1;
+    }
+
+    .paragraph .title {
+      font-size: 2.2rem;
+      color: #fff;
+      margin-bottom: 35px;
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      position: relative;
+      z-index: 1;
     }
 
     .paragraph .title::before {
-      background: var(--primary);
+      content: '';
+      width: 45px;
+      height: 5px;
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
+      border-radius: 10px;
     }
 
-    /* Effetto Glow di sfondo */
-    .glow {
-      background: radial-gradient(circle, rgba(0, 212, 255, 0.1), transparent 70%);
+    .paragraph p {
+      font-size: 1.2rem;
+      color: #b0c4de; /* Grigio azzurrato per il testo */
+      text-align: justify;
+      line-height: 1.9;
+      position: relative;
+      z-index: 1;
     }
 
-    footer {
-      border-top: 1px solid var(--glass-border);
-      color: #64748b;
-    }
-
-    /* Effetto Glow */
-    .glow {
-      position: absolute;
-      width: 500px;
-      height: 500px;
-      background: radial-gradient(circle, rgba(0, 255, 170, 0.08), transparent 70%);
-      top: 20%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      z-index: -1;
-      pointer-events: none;
+    /* Supporto per parole in grassetto nel testo */
+    .paragraph strong {
+      color: var(--primary);
+      font-weight: 700;
     }
   </style>
 </head>
