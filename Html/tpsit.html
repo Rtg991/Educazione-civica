@@ -3,9 +3,19 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CSA MODERN</title>
+  <title>CSA MODERN | Green Computing</title>
+  
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
 
   <style>
+    :root {
+      --primary: #00ffaa;
+      --secondary: #00d4ff;
+      --bg-dark: #081c15;
+      --glass: rgba(255, 255, 255, 0.03);
+      --glass-border: rgba(255, 255, 255, 0.08);
+    }
+
     * {
       margin: 0;
       padding: 0;
@@ -14,232 +24,287 @@
     }
 
     body {
-  /* Sfumatura da un verde foresta a un verde scurissimo */
-  background: linear-gradient(135deg, #1b4332 0%, #081c15 100%);
-  
-  /* Mantiene lo sfondo fisso durante lo scroll */
-  background-attachment: fixed;
-  min-height: 100vh;
-  
-  /* Il testo deve essere chiaro per contrastare lo sfondo scuro */
-  color: #e0e0e0; 
-  
-  overflow-x: hidden;
-  margin: 0;
-  font-family: Arial, sans-serif;
-}
+      background: radial-gradient(circle at top right, #1b4332, #081c15);
+      background-attachment: fixed;
+      color: #e0e0e0;
+      line-height: 1.8;
+      overflow-x: hidden;
+    }
 
     /* NAVBAR */
     .navbar {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 30px 8%;
-      background: linear-gradient(135deg, #1b4332 0%, #081c15 100%);
-      backdrop-filter: blur(10px);
+      padding: 20px 8%;
+      background: rgba(8, 28, 21, 0.85);
+      backdrop-filter: blur(15px);
       position: sticky;
       top: 0;
       z-index: 1000;
-    }
-
-    .navbar nav {
-      display: flex;
-      gap: 30px;
-    }
-
-    .navbar nav a {
-      color: #8fa19e;
-      text-decoration: none;
-      transition: 0.3s;
-    }
-
-    .navbar nav a:hover {
-      color: #00ffaa;
+      border-bottom: 1px solid var(--glass-border);
     }
 
     .logo {
       font-weight: 800;
-      font-size: 24px;
+      font-size: 22px;
+      letter-spacing: -1px;
       color: #fff;
     }
 
-    /* HERO */
-    .hero {
-      display: flex;
-      align-items: flex-start;
-      justify-content: center;
-      text-align: center;
-      position: relative;
-      padding-top: 40px;
-      height: 10px;
-      min-height: 40vh;
-    }
+    .logo span { color: var(--primary); }
 
-    .hero h1 {
-      font-size: clamp(40px, 8vw, 75px);
-      margin: 0;
-    }
+    .navbar nav { display: flex; gap: 30px; }
 
-    .hero span {
-      color: #00ffaa;
-    }
-
-    .glow {
-      position: absolute;
-      width: 600px;
-      height: 600px;
-      background: radial-gradient(circle, rgba(0,255,170,0.15), transparent 70%);
-      top: 30%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      filter: blur(120px);
-      z-index: -1;
-    }
-
-    /* PARAGRAFO SISTEMATO */
-    .paragraph {
-      background: rgba(255,255,255,0.03);
-      border: 1px solid rgba(255,255,255,0.1);
-      padding: 25px;
-      border-radius: 30px;
-      backdrop-filter: blur(20px);
-      width: 60%;
-      margin: -50px auto 80px auto;
-      text-align: center;
-      transition: 0.3s;      
-    }
-
-    .paragraph:hover {
-      transform: translateY(-10px) scale(1.03);
-      border-color: #00ffaa;
-      box-shadow: 0 0 25px #00ffaa;
-    }
-
-    .paragraph .title {
-      margin-bottom: 15px;
+    .navbar nav a {
+      color: #8fa19e;
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
       transition: 0.3s;
     }
 
-    .paragraph:hover .title {
-      color: #00ffaa;
+    .navbar nav a:hover { color: var(--primary); text-shadow: 0 0 8px var(--primary); }
+
+    /* HERO */
+    .hero {
+      padding: 80px 20px 20px;
+      text-align: center;
+      position: relative;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.5rem, 8vw, 5rem);
+      font-weight: 800;
+      background: linear-gradient(to bottom, #fff, #8fa19e);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 10px;
+    }
+
+    .hero-tag {
+      color: var(--primary);
+      text-transform: uppercase;
+      letter-spacing: 5px;
+      font-weight: 700;
+      font-size: 0.9rem;
+      display: block;
+    }
+
+    /* CILINDRO 3D (Stilizzato senza immagini) */
+    .cylinder-wrapper {
+      height: 450px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      perspective: 2000px;
+      margin-bottom: 20px;
+    }
+
+    .cylinder {
+      position: relative;
+      width: 220px;
+      height: 300px;
+      transform-style: preserve-3d;
+    }
+
+    .cylinder-card {
+      position: absolute;
+      width: 200px;
+      height: 280px;
+      background: linear-gradient(135deg, rgba(0, 255, 170, 0.05), rgba(0, 0, 0, 0.2));
+      border: 1px solid var(--glass-border);
+      border-radius: 24px;
+      backdrop-filter: blur(10px);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 20px;
+      transition: border 0.3s, transform 0.3s;
+    }
+
+    .cylinder-card:hover {
+      border-color: var(--primary);
+      box-shadow: 0 0 30px rgba(0, 255, 170, 0.15);
+    }
+
+    .cylinder-card i {
+      font-size: 3rem;
+      margin-bottom: 15px;
+      display: block;
+    }
+
+    .cylinder-card h4 {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--primary);
+    }
+
+    /* CONTENUTO TESTUALE */
+    .container {
+      max-width: 900px;
+      margin: 0 auto 100px;
+      padding: 0 20px;
+    }
+
+    .paragraph {
+      background: var(--glass);
+      border: 1px solid var(--glass-border);
+      padding: 60px;
+      border-radius: 40px;
+      backdrop-filter: blur(20px);
+      box-shadow: 0 25px 50px rgba(0,0,0,0.3);
+    }
+
+    .paragraph .title {
+      font-size: 2.2rem;
+      color: #fff;
+      margin-bottom: 30px;
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .paragraph .title::before {
+      content: '';
+      width: 40px;
+      height: 4px;
+      background: var(--primary);
+      border-radius: 2px;
+    }
+
+    .paragraph p {
+      font-size: 1.1rem;
+      color: #c9d1d0;
+      text-align: justify;
+      white-space: pre-line; /* Mantiene le interruzioni di riga del testo originale */
     }
 
     footer {
       text-align: center;
       padding: 60px 20px;
-      border-top: 1px solid rgba(255,255,255,0.05);
+      border-top: 1px solid var(--glass-border);
+      color: #556b66;
+      font-size: 0.9rem;
     }
 
-
-    /* CILINDRO */
-.cylinder-wrapper {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 190px ;
-  perspective: 1200px;
-  overflow: hidden;
-  background: radial-gradient(ellipse at center, #007fff33 0%, #00aaff11 40%, transparent 70%);
-  position: relative; /* aggiunge questo */
-}
-
-.cylinder {
-  position: relative;
-  width: 150px;
-  height: 420px;
-  transform-style: preserve-3d;
-}
-
-.cylinder-card {
-  position: absolute;
-  /* Dimensioni dinamiche basate sulla viewport o fisse ma proporzionate */
-  width: 280px;  
-  height: 380px; 
-  top: 50%;
-  left: 50%;
-  /* Centratura perfetta prima della trasformazione JS */
-  margin-left: -140px; 
-  margin-top: -190px;
-  
-  overflow: hidden;
-  border-radius: 8px; /* Arrotondato sta meglio con il design moderno */
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-  
-  /* Migliora la resa visiva durante la rotazione */
-  backface-visibility: visible; 
-}
-
-.cylinder-card img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover; /* Riempie lo spazio senza deformare */
-  display: block;
-}
-
-.cylinder-card img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-@keyframes rotateCylinder {
-  from { transform: rotateY(0deg); }
-  to   { transform: rotateY(-360deg); }
-}
-
-
+    /* Effetto bagliore sullo sfondo */
+    .glow-sphere {
+      position: absolute;
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, rgba(0, 255, 170, 0.05), transparent 70%);
+      top: 20%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      pointer-events: none;
+      z-index: -1;
+    }
   </style>
 </head>
 
 <body>
 
 <header class="navbar">
-  <div class="logo">CSA MODERN</div>
+  <div class="logo">CSA <span>MODERN</span></div>
   <nav>
-    <a href="sostenibilita.html">Home</a>
-    <a href="finalita.html">Finalità e Progetto</a>
-    <a href="ChiSiamo.html">Chi siamo</a>
+    <a href="#">Home</a>
+    <a href="#">Finalità</a>
+    <a href="#">Chi Siamo</a>
   </nav>
 </header>
 
 <section class="hero">
-  <div class="glow"></div>
-  <div class="content">
-    <h1>Green Computing</h1>
-  </div>
+  <div class="glow-sphere"></div>
+  <span class="hero-tag">Informatica Sostenibile</span>
+  <h1>Green Computing</h1>
 </section>
 
-<section>
+<div class="cylinder-wrapper">
+  <div class="cylinder" id="cylinder">
+    </div>
+</div>
+
+<div class="container">
   <div class="paragraph">
-    <h3 class="title">Green Computing</h3>
+    <h3 class="title">Sviluppo e Strategie</h3>
     <p>
-      L'Agenda 2030 e il Consumo ResponsabileL'Agenda 2030 delle Nazioni Unite stabilisce 17 obiettivi (SDGs) per garantire uno sviluppo globale equilibrato tra economia, società e ambiente. In questo quadro, l'Obiettivo 12 riveste un ruolo cruciale, poiché promuove modelli di consumo e produzione responsabili. Questo obiettivo si lega direttamente al settore tecnologico, rendendo necessaria l'adozione di pratiche che riducano l'impronta ecologica della nostra vita digitale.Cos'è il Green Computing?Il Green Computing, o informatica verde, rappresenta l'approccio ecologico alla tecnologia. Si definisce come l'insieme di strategie, tecnologie e comportamenti volti a ridurre l'impatto ambientale dei sistemi informatici. Gli sforzi principali si concentrano sull'ottimizzazione dei consumi energetici, sulla limitazione delle emissioni di $CO_2$ e sulla gestione virtuosa dei materiali durante tutto il ciclo di vita dei dispositivi.Gli Obiettivi dell'Informatica VerdePer trasformare il settore IT in senso sostenibile, il Green Computing si pone quattro traguardi fondamentali:Efficienza energetica: Migliorare l'architettura dei processori e del software affinché richiedano meno elettricità.Riduzione degli e-waste: Contrastare l'accumulo di rifiuti elettronici favorendo il riciclo dei componenti e l'uso di materiali sicuri.Progettazione sostenibile: Creare prodotti più longevi e facili da riparare per rallentare l'obsolescenza tecnologica.Cloud Computing verde: Centralizzare l'elaborazione dati in infrastrutture ottimizzate, riducendo la necessità di server locali meno efficienti.Strategie Concrete e ImplementazioneNella pratica, il Green Computing si traduce in scelte tecnologiche specifiche. Si predilige l'uso di hardware eco-friendly e di software ottimizzato per non sprecare risorse computazionali. Una tecnica chiave è la virtualizzazione, che permette di far girare più sistemi su un unico server fisico, riducendo il numero di macchine attive e i relativi consumi. Anche i data center giocano un ruolo vitale, venendo progettati per utilizzare energie rinnovabili e materiali non tossici.Esempi di Innovazione e RisparmioL'applicazione di questi principi è già visibile in molte soluzioni moderne. Nei grandi data center si adottano sistemi di raffreddamento avanzati, come il "free cooling" che sfrutta l'aria naturale esterna per mantenere le temperature ideali senza l'uso massiccio di condizionatori. A livello software, i moderni sistemi operativi integrano protocolli di gestione dell'energia capaci di sospendere i processi inutilizzati, garantendo un risparmio energetico costante e automatico.
+      L'Agenda 2030 e il Consumo Responsabile
+      L'Agenda 2030 delle Nazioni Unite stabilisce 17 obiettivi (SDGs) per garantire uno sviluppo globale equilibrato tra economia, società e ambiente. In questo quadro, l'Obiettivo 12 riveste un ruolo cruciale, poiché promuove modelli di consumo e produzione responsabili. Questo obiettivo si lega direttamente al settore tecnologico, rendendo necessaria l'adozione di pratiche che riducano l'impronta ecologica della nostra vita digitale.
+
+      Cos'è il Green Computing?
+      Il Green Computing, o informatica verde, rappresenta l'approccio ecologico alla tecnologia. Si definisce come l'insieme di strategie, tecnologie e comportamenti volti a ridurre l'impatto ambientale dei sistemi informatici. Gli sforzi principali si concentrano sull'ottimizzazione dei consumi energetici, sulla limitazione delle emissioni di $CO_2$ e sulla gestione virtuosa dei materiali durante tutto il ciclo di vita dei dispositivi.
+
+      Gli Obiettivi dell'Informatica Verde
+      Per trasformare il settore IT in senso sostenibile, il Green Computing si pone quattro traguardi fondamentali:
+      • Efficienza energetica: Migliorare l'architettura dei processori e del software affinché richiedano meno elettricità.
+      • Riduzione degli e-waste: Contrastare l'accumulo di rifiuti elettronici favorendo il riciclo dei componenti e l'uso di materiali sicuri.
+      • Progettazione sostenibile: Creare prodotti più longevi e facili da riparare per rallentare l'obsolescenza tecnologica.
+      • Cloud Computing verde: Centralizzare l'elaborazione dati in infrastrutture ottimizzate, riducendo la necessità di server locali meno efficienti.
+
+      Strategie Concrete e Implementazione
+      Nella pratica, il Green Computing si traduce in scelte tecnologiche specifiche. Si predilige l'uso di hardware eco-friendly e di software ottimizzato per non sprecare risorse computazionali. Una tecnica chiave è la virtualizzazione, che permette di far girare più sistemi su un unico server fisico, riducendo il numero di macchine attive e i relativi consumi. Anche i data center giocano un ruolo vitale, venendo progettati per utilizzare energie rinnovabili e materiali non tossici.
+
+      Esempi di Innovazione e Risparmio
+      L'applicazione di questi principi è già visibile in molte soluzioni moderne. Nei grandi data center si adottano sistemi di raffreddamento avanzati, come il "free cooling" che sfrutta l'aria naturale esterna per mantenere le temperature ideali senza l'uso massiccio di condizionatori. A livello software, i moderni sistemi operativi integrano protocolli di gestione dell'energia capaci di sospendere i processi inutilizzati, garantendo un risparmio energetico costante e automatico.
     </p>
   </div>
-</section>
+</div>
 
 <footer>
   <p>© 2026 CSA MODERN - La Terra</p>
 </footer>
 
-</body>
-<script>document.addEventListener('DOMContentLoaded', () => {
-  const cards = document.querySelectorAll('.cylinder-card');
-  const totalCards = cards.length;
-  const angleStep = 360 / totalCards;
-  let currentAngle = 0;
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const cylinder = document.getElementById('cylinder');
+    
+    // Contenuti per le card (al posto delle immagini)
+    const cardData = [
+      { icon: '♻️', text: 'E-Waste' },
+      { icon: '🔋', text: 'Efficiency' },
+      { icon: '☁️', text: 'Green Cloud' },
+      { icon: '💻', text: 'Eco Hardware' },
+      { icon: '⚡', text: 'Zero Emission' },
+      { icon: '🌍', text: 'Agenda 2030' }
+    ];
 
-  function animate() {
-    currentAngle += 0.3;
-    cards.forEach((card, i) => {
-      const cardAngle = i * angleStep + currentAngle;
-      card.style.transform = `rotateY(${cardAngle}deg) translateZ(450px) rotateY(${-cardAngle + 105}deg)`;
+    const totalCards = cardData.length;
+    const angleStep = 360 / totalCards;
+
+    // Generazione dinamica
+    cardData.forEach((data, i) => {
+      const card = document.createElement('div');
+      card.className = 'cylinder-card';
+      card.innerHTML = `<i>${data.icon}</i><h4>${data.text}</h4>`;
+      cylinder.appendChild(card);
     });
-    requestAnimationFrame(animate);
-  }
 
-  animate();
-});
-  </script>
+    const cards = document.querySelectorAll('.cylinder-card');
+    let currentAngle = 0;
+
+    function animate() {
+      currentAngle += 0.4; // Velocità di rotazione
+      cards.forEach((card, i) => {
+        const cardAngle = i * angleStep + currentAngle;
+        // Posizionamento nel cerchio 3D
+        card.style.transform = `rotateY(${cardAngle}deg) translateZ(350px)`;
+        
+        // Effetto dissolvenza per le card sul retro
+        const normalizedAngle = (cardAngle % 360 + 360) % 360;
+        card.style.opacity = (normalizedAngle > 90 && normalizedAngle < 270) ? "0.2" : "1";
+      });
+      requestAnimationFrame(animate);
+    }
+
+    animate();
+  });
+</script>
+
+</body>
 </html>
