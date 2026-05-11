@@ -63,6 +63,61 @@
             text-align: justify;
         }
 
+        /* CILINDRO 3D (Stile originale riadattato) */
+    .cylinder-wrapper {
+      height: 450px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      perspective: 2000px;
+      margin-bottom: 20px;
+    }
+
+    .cylinder {
+      position: relative;
+      width: 220px;
+      height: 300px;
+      transform-style: preserve-3d;
+    }
+
+    .cylinder-card {
+      position: absolute;
+      width: 200px;
+      height: 280px;
+      /* Background stile vetro chiaro */
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(216, 243, 220, 0.5));
+      border: 1px solid var(--glass-border);
+      border-radius: 24px;
+      backdrop-filter: blur(10px);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 20px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+      transition: all 0.3s ease;
+    }
+
+    .cylinder-card:hover {
+      border-color: var(--primary);
+      transform: scale(1.05) !important;
+      box-shadow: 0 15px 35px rgba(82, 183, 136, 0.2);
+    }
+
+    .cylinder-card i {
+      font-size: 3.5rem;
+      margin-bottom: 15px;
+      display: block;
+    }
+
+    .cylinder-card h4 {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--text-main);
+    }
+
         footer {
             text-align: center;
             font-size: 0.9rem;
