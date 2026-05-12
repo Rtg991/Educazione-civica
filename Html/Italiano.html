@@ -216,47 +216,7 @@
         Verso un futuro più sostenibile — Agenda 2030
     </footer>
 
-    <script>
-  document.addEventListener('DOMContentLoaded', () => {
-    const cylinder = document.getElementById('cylinder');
-    
-    const cardData = [
-      { icon: '♻️', text: 'E-Waste' },
-      { icon: '🔋', text: 'Efficiency' },
-      { icon: '☁️', text: 'Green Cloud' },
-      { icon: '💻', text: 'Eco Hardware' },
-      { icon: '⚡', text: 'Zero Emission' },
-      { icon: '🌍', text: 'Agenda 2030' }
-    ];
-
-    const totalCards = cardData.length;
-    const angleStep = 360 / totalCards;
-
-    cardData.forEach((data, i) => {
-      const card = document.createElement('div');
-      card.className = 'cylinder-card';
-      card.innerHTML = `<i>${data.icon}</i><h4>${data.text}</h4>`;
-      cylinder.appendChild(card);
-    });
-
-    const cards = document.querySelectorAll('.cylinder-card');
-    let currentAngle = 0;
-
-    function animate() {
-      currentAngle += 0.4; 
-      cards.forEach((card, i) => {
-        const cardAngle = i * angleStep + currentAngle;
-        card.style.transform = `rotateY(${cardAngle}deg) translateZ(350px)`;
-        
-        const normalizedAngle = (cardAngle % 360 + 360) % 360;
-        card.style.opacity = (normalizedAngle > 90 && normalizedAngle < 270) ? "0.2" : "1";
-      });
-      requestAnimationFrame(animate);
-    }
-
-    animate();
-  });
-</script>
+    <script src="../progetto.js"></script>
 
 </body>
 </html>
