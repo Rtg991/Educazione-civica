@@ -29,6 +29,46 @@
   font-family: Arial, sans-serif;
 }
 
+    .card {
+      background: white;
+      border-radius: 15px;
+      width: 200px;
+      padding: 15px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .card:hover {
+      transform: scale(1.05);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+    }
+
+    .card img {
+      width: 100%;
+      border-radius: 10px;
+    }
+
+    .card-button {
+  display: inline-block;
+  padding: 6px 12px;
+  font-size: 14px;
+  font-weight: 500;
+  color: white;
+  background-color: #2d89ef;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.card-button:hover {
+  background-color: #1f6fd1;
+}
+
+.card-button:active {
+  transform: scale(0.97);
+}
+    
     /* NAVBAR */
     .navbar {
       display: flex;
