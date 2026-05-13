@@ -1,1 +1,188 @@
-<!DOCTYPE html><
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <style>
+@page {
+    size: A4;
+    margin: 20mm 15mm;
+    background-color: #ffffff;
+}
+
+body {
+    font-family: 'Georgia', serif;
+    color: #1a1a1a;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #ffffff;
+}
+
+header {
+    text-align: center;
+    border-bottom: 2px solid #000;
+    margin-bottom: 30px;
+    padding-bottom: 10px;
+}
+
+.newspaper-name {
+    font-family: 'Times New Roman', serif;
+    font-variant: small-caps;
+    font-size: 28pt;
+    font-weight: bold;
+    letter-spacing: 2px;
+    margin-bottom: 5px;
+}
+
+.date-line {
+    font-size: 9pt;
+    text-transform: uppercase;
+    border-top: 1px solid #333;
+    padding-top: 5px;
+}
+
+h1 {
+    font-size: 26pt;
+    line-height: 1.1;
+    margin-bottom: 10px;
+    text-align: left;
+    font-weight: bold;
+}
+
+.subtitle {
+    font-size: 14pt;
+    color: #444;
+    font-style: italic;
+    margin-bottom: 25px;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 15px;
+}
+
+.content {
+    column-count: 1; /* Keeping it simple for PDF readability but can be changed */
+}
+
+h2 {
+    font-size: 16pt;
+    border-left: 5px solid #000;
+    padding-left: 10px;
+    margin-top: 30px;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+}
+
+p {
+    margin-bottom: 15px;
+    text-align: justify;
+}
+
+.table-container {
+    margin: 30px 0;
+    page-break-inside: avoid;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: 'Arial', sans-serif;
+    font-size: 10pt;
+}
+
+th {
+    background-color: #333;
+    color: white;
+    text-align: left;
+    padding: 10px;
+}
+
+td {
+    border: 1px solid #ccc;
+    padding: 10px;
+    vertical-align: top;
+}
+
+tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.conclusion {
+    margin-top: 30px;
+    padding: 20px;
+    background-color: #f4f4f4;
+    border-top: 3px solid #000;
+    font-style: italic;
+}
+</style>
+</head>
+<body>
+    <header>
+        <div class="newspaper-name">Il Tech Finanziario</div>
+        <div class="date-line">Edizione Speciale Tecnologica • Maggio 2026</div>
+    </header>
+
+    <main>
+        <h1>Intel al bivio: la sfida per la sovranità dei chip tra crisi di mercato e rinascita industriale</h1>
+        
+        <div class="subtitle">
+            Il gigante di Santa Clara attraversa una fase di profonda ristrutturazione per recuperare il terreno perduto contro i competitor asiatici. Tra investimenti miliardari in nuovi impianti e l'integrazione dell'intelligenza artificiale, Intel punta a ridefinire il futuro della produzione globale di semiconduttori.
+        </div>
+
+        <div class="content">
+            <h2>Il nuovo corso di Intel</h2>
+            <p>
+                Intel, lo storico leader mondiale dei microprocessori, si trova oggi al centro di una trasformazione epocale che punta a scardinare gli attuali equilibri della supply chain tecnologica. Dopo anni di dominio incontrastato, l’azienda guidata da Pat Gelsinger sta affrontando una complessa strategia di turnaround per rispondere all’avanzata di rivali come TSMC e NVIDIA. L’obiettivo non è solo quello di mantenere la leadership nel settore dei PC, ma di trasformarsi in una foundry di livello mondiale, capace di produrre chip per conto terzi sul suolo americano ed europeo. Questa manovra si inserisce nel quadro geopolitico del Chips Act, volto a ridurre la dipendenza dell'Occidente dalle fabbriche asiatiche, rendendo Intel il perno fondamentale per la sicurezza tecnologica globale e lo sviluppo dei nuovi processori ottimizzati per l'intelligenza artificiale.
+            </p>
+
+            <h2>Focus: La scommessa sulle "Foundry" e l'architettura a 18A</h2>
+            <p>
+                Il fulcro della nuova strategia aziendale risiede nel progetto Intel Foundry. A differenza del passato, l'azienda ha deciso di separare internamente la progettazione dei chip dalla loro produzione fisica. Questo cambiamento radicale permette a Intel di offrire i propri stabilimenti all'avanguardia anche ai concorrenti, ottimizzando l'utilizzo delle proprie fabbriche automatizzate. Il cuore tecnologico di questa sfida è il processo produttivo denominato 18A (1.8 nanometri), che promette di riportare Intel in cima alla classifica dell'efficienza energetica e della densità di transistor entro il 2025.
+            </p>
+            <p>
+                Parallelamente, l'integrazione dell'intelligenza artificiale nei processori consumer (i nuovi Core Ultra) rappresenta il secondo pilastro del rilancio. Intel sta scommettendo massicciamente sugli AI PC, computer dotati di un'unità di elaborazione neurale (NPU) integrata che permette di gestire carichi di lavoro complessi localmente, senza dipendere costantemente dal cloud. Questa innovazione non è solo una risposta tecnica alla concorrenza, ma un tentativo di creare un nuovo standard di mercato che possa rivitalizzare il settore dei personal computer, fermo da anni su incrementi prestazionali marginali.
+            </p>
+
+            <div class="table-container">
+                <h2>Dati e prospettive: La situazione attuale</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Parametro</th>
+                            <th>Obiettivo Strategico 2025-2026</th>
+                            <th>Stato dell'Arte</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Processo Produttivo</td>
+                            <td>Nodo 18A (Leadership mondiale)</td>
+                            <td>Nodo Intel 4 / Intel 3</td>
+                        </tr>
+                        <tr>
+                            <td>Mercato AI</td>
+                            <td>Dominanza nel segmento AI PC</td>
+                            <td>Lancio dei processori Meteor Lake</td>
+                        </tr>
+                        <tr>
+                            <td>Geografia Produzione</td>
+                            <td>Espansione in Ohio, Germania e Israele</td>
+                            <td>Prevalenza stabilimenti in Oregon e Asia</td>
+                        </tr>
+                        <tr>
+                            <td>Modello di Business</td>
+                            <td>Divisione netta tra Progettazione e Fonderia</td>
+                            <td>Integrazione verticale in fase di separazione</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h2>Una corsa contro il tempo</h2>
+            <div class="conclusion">
+                <p>
+                    In sintesi, Intel sta affrontando la ristrutturazione più audace della sua storia cinquantennale. L’azienda sta cercando di bilanciare pesanti tagli dei costi operativi con investimenti in conto capitale senza precedenti per costruire le infrastrutture del futuro. Sebbene la strada sia in salita e i margini di profitto siano attualmente sotto pressione, il successo di Intel appare vitale non solo per i suoi azionisti, ma per l'intero ecosistema tecnologico occidentale. A mio giudizio, la transizione verso il modello foundry è l'unica via percorribile per evitare l'oblio tecnologico; tuttavia, la riuscita dipenderà esclusivamente dalla capacità di rispettare la tabella di marcia dei nuovi nodi produttivi, dove non sono più ammessi ritardi.
+                </p>
+            </div>
+        </div>
+    </main>
+</body>
+</html>
