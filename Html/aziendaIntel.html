@@ -24,6 +24,31 @@ header {
     padding-bottom: 15px;
 }
 
+        .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 8%;
+      background: rgba(255, 255, 255, 0.8);
+      backdrop-filter: blur(15px);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      border-bottom: 1px solid var(--glass-border);
+    }
+
+        
+        .navbar nav { display: flex; gap: 30px; }
+    .navbar nav a {
+      color: #556b66;
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      transition: 0.3s;
+    }
+    .navbar nav a:hover { color: var(--primary); }
+
 .newspaper-name {
     font-family: 'Times New Roman', serif;
     font-variant: small-caps;
