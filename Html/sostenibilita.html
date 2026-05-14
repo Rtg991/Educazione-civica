@@ -26,9 +26,23 @@
 }
 
 .navbar nav a {
-  color: white !important;
+  color: #ffffff !important;
   font-weight: bold;
-  text-shadow: 1px 1px 4px rgba(0,0,0,0.5);
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.6);
+  padding: 0 15px;
+  position: relative;
+}
+
+/* Separatore */
+.navbar nav a:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 1px;
+  height: 18px;
+  background: rgba(255,255,255,0.5);
 }
 </style>
   
