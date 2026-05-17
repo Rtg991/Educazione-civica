@@ -98,58 +98,69 @@
     }
 
     /* CILINDRO DINAMICO */
-    .cylinder-wrapper {
-      height: 500px;
+   .cylinder-wrapper {
+      height: 450px;
       display: flex;
       justify-content: center;
       align-items: center;
       perspective: 2000px;
-      margin-top: -50px;
+      margin-bottom: 20px;
     }
 
     .cylinder {
       position: relative;
-      width: 200px;
+      width: 220px;
       height: 300px;
       transform-style: preserve-3d;
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
 
     .cylinder-card {
-      position: absolute;
-      width: 240px;
-      height: 320px;
-      background: var(--glass);
-      border: 1px solid var(--glass-border);
-      border-radius: 24px;
-      backdrop-filter: blur(10px);
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      padding: 30px;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.05);
-      transition: 0.4s;
-    }
+    position: absolute;
+    width: 200px;
+    height: 280px;
+    background: #fff; /* Semplificato */
+    border: 1px solid rgba(0,0,0,0.1);
+    border-radius: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden; /* IMPORTANTE: taglia l'immagine se esce dai bordi arrotondati */
+    padding: 0;      /* IMPORTANTE: elimina lo spazio interno */
+    box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+    transition: all 0.3s ease;
+}
 
     .cylinder-card:hover {
-      border-color: var(--accent);
-      transform: scale(1.05);
-      box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+      border-color: var(--primary);
+      transform: scale(1.05) !important;
+      box-shadow: 0 15px 35px rgba(82, 183, 136, 0.2);
     }
 
-    .cylinder-card .icon {
+    .cylinder-card i {
       font-size: 3.5rem;
       margin-bottom: 15px;
+      display: block;
     }
+        
+.cylinder-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 20px;
+    object-fit: contain; /* Mostra l'immagine intera senza tagli */
+    background-color: #fff; /* Colore di sfondo per le parti "vuote" */
+}
 
     .cylinder-card h4 {
-      font-size: 0.85rem;
+      font-size: 0.8rem;
       text-transform: uppercase;
-      letter-spacing: 2px;
-      color: #1e293b;
-      font-weight: 800;
+      letter-spacing: 1px;
+      color: var(--text-main);
     }
+
 
     /* CONTENUTO TESTUALE */
     .container {
