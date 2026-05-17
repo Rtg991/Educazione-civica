@@ -302,45 +302,38 @@
 </footer>
 
 <script>
-  document.addEventListener('DOMContentLoaded', () => {
-    const cylinder = document.getElementById('cylinder');
-    const companies = [
-      { name: 'Cisco', icon: '🌐' },
-      { name: 'Dell', icon: '💻' },
-      { name: 'AWS', icon: '☁️' },
-      { name: 'Intel', icon: '⚙️' },
-      { name: 'Broadcom', icon: '📡' }
-    ];
-
-    const total = companies.length;
-    const angleStep = 360 / total;
-
-    // Crea le card nel cilindro
-    companies.forEach((comp, i) => {
-      const card = document.createElement('div');
-      card.className = 'cylinder-card';
-      card.innerHTML = `<i>${comp.icon}</i><h4>${comp.name}</h4>`;
-      cylinder.appendChild(card);
-    });
-
+  const cylinder = document.getElementById('cylinder');
+    // Selezioniamo le card che contengono le immagini già presenti nell'HTML
     const cards = document.querySelectorAll('.cylinder-card');
+    const totalCards = cards.length;
+    const angleStep = 360 / totalCards;
+    
     let currentAngle = 0;
 
     function animate() {
-      currentAngle += 0.4; // Velocità rotazione
-      cards.forEach((card, i) => {
-        const cardAngle = i * angleStep + currentAngle;
-        card.style.transform = `rotateY(${cardAngle}deg) translateZ(350px)`;
-        
-        // Effetto dissolvenza per card sul retro
-        const normAngle = (cardAngle % 360 + 360) % 360;
-        card.style.opacity = (normAngle > 90 && normAngle < 270) ? "0.2" : "1";
-      });
-      requestAnimationFrame(animate);
+        currentAngle -= 0.35; // Velocità di rotazione
+        cards.forEach((card, i) => {
+            const cardAngle = (i * angleStep) + currentAngle;
+            
+            // Applichiamo la trasformazione 3D
+            // translateZ definisce il raggio del cilindro
+            card.style.transform = `rotateY(${cardAngle}deg) translateZ(350px)`;
+            
+            // Gestione opacità per nascondere le immagini sul retro
+            const normalizedAngle = (cardAngle % 360 + 360) % 360;
+            if (normalizedAngle > 90 && normalizedAngle < 270) {
+                card.style.opacity = "0.1";
+                card.style.pointerEvents = "none"; // Impedisce il click su quelle dietro
+            } else {
+                card.style.opacity = "1";
+                card.style.pointerEvents = "auto";
+            }
+        });
+        requestAnimationFrame(animate);
     }
 
+    // Avvia l'animazione
     animate();
-  });
 </script>
 
 </body>
