@@ -272,53 +272,38 @@
 </footer>
 
 <script>
-document.addEventListener('DOMContentLoaded', () => {
-  const cylinder = document.getElementById('cylinder');
-  
-  // Dati per le card del cilindro
-  const companies = [
-    { name: 'Apple', icon: '🍏' },
-    { name: 'Microsoft', icon: '💻' },
-    { name: 'Meta', icon: '♾️' },
-    { name: 'Nvidia', icon: '⚡' },
-    { name: 'Adobe', icon: '🎨' },
-    { name: 'Red Hat', icon: '⛑️' }
-  ];
+const cylinder = document.getElementById('cylinder');
+    // Selezioniamo le card che contengono le immagini già presenti nell'HTML
+    const cards = document.querySelectorAll('.cylinder-card');
+    const totalCards = cards.length;
+    const angleStep = 360 / totalCards;
+    
+    let currentAngle = 0;
 
-  const totalCards = companies.length;
-  const angleStep = 360 / totalCards;
-  
-  // Creazione dinamica delle card
-  companies.forEach((comp, i) => {
-    const card = document.createElement('div');
-    card.className = 'cylinder-card';
-    card.innerHTML = `<div class="icon">${comp.icon}</div><h4>${comp.name}</h4>`;
-    cylinder.appendChild(card);
-  });
+    function animate() {
+        currentAngle -= 0.35; // Velocità di rotazione
+        cards.forEach((card, i) => {
+            const cardAngle = (i * angleStep) + currentAngle;
+            
+            // Applichiamo la trasformazione 3D
+            // translateZ definisce il raggio del cilindro
+            card.style.transform = `rotateY(${cardAngle}deg) translateZ(350px)`;
+            
+            // Gestione opacità per nascondere le immagini sul retro
+            const normalizedAngle = (cardAngle % 360 + 360) % 360;
+            if (normalizedAngle > 90 && normalizedAngle < 270) {
+                card.style.opacity = "0.1";
+                card.style.pointerEvents = "none"; // Impedisce il click su quelle dietro
+            } else {
+                card.style.opacity = "1";
+                card.style.pointerEvents = "auto";
+            }
+        });
+        requestAnimationFrame(animate);
+    }
 
-  const cards = document.querySelectorAll('.cylinder-card');
-  let currentAngle = 0;
-
-  function animate() {
-    currentAngle += 0.4; // Velocità di rotazione
-    cards.forEach((card, i) => {
-      const cardAngle = i * angleStep + currentAngle;
-      // Posizionamento nel cerchio 3D
-      card.style.transform = `rotateY(${cardAngle}deg) translateZ(380px)`;
-      
-      // Effetto dissolvenza per le card sul retro
-      const normalizedAngle = (cardAngle % 360 + 360) % 360;
-      if (normalizedAngle > 90 && normalizedAngle < 270) {
-        card.style.opacity = "0.15";
-      } else {
-        card.style.opacity = "1";
-      }
-    });
-    requestAnimationFrame(animate);
-  }
-
-  animate();
-});
+    // Avvia l'animazione
+    animate();
 </script>
 
 </body>
