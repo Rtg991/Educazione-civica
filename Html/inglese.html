@@ -96,7 +96,7 @@
 
     /* CILINDRO 3D (Stilizzato con Icone) */
     .cylinder-wrapper {
-      height: 480px;
+      height: 450px;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -109,43 +109,55 @@
       width: 220px;
       height: 300px;
       transform-style: preserve-3d;
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
 
     .cylinder-card {
-      position: absolute;
-      width: 220px;
-      height: 300px;
-      background: linear-gradient(135deg, rgba(255,255,255,0.05), rgba(255,255,255,0.01));
-      border: 1px solid var(--glass-border);
-      border-radius: 24px;
-      backdrop-filter: blur(12px);
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      padding: 25px;
-      transition: border 0.4s, box-shadow 0.4s;
-    }
+    position: absolute;
+    width: 200px;
+    height: 280px;
+    background: #fff; /* Semplificato */
+    border: 1px solid rgba(0,0,0,0.1);
+    border-radius: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden; /* IMPORTANTE: taglia l'immagine se esce dai bordi arrotondati */
+    padding: 0;      /* IMPORTANTE: elimina lo spazio interno */
+    box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+    transition: all 0.3s ease;
+}
 
     .cylinder-card:hover {
       border-color: var(--primary);
-      box-shadow: 0 0 40px rgba(0, 255, 170, 0.2);
+      transform: scale(1.05) !important;
+      box-shadow: 0 15px 35px rgba(82, 183, 136, 0.2);
     }
 
-    .cylinder-card .icon {
+    .cylinder-card i {
       font-size: 3.5rem;
-      margin-bottom: 20px;
-      filter: drop-shadow(0 0 10px rgba(0, 255, 170, 0.3));
+      margin-bottom: 15px;
+      display: block;
     }
+        
+.cylinder-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 20px;
+    object-fit: contain; /* Mostra l'immagine intera senza tagli */
+    background-color: #fff; /* Colore di sfondo per le parti "vuote" */
+}
 
     .cylinder-card h4 {
-      color: var(--primary);
-      font-size: 0.85rem;
+      font-size: 0.8rem;
       text-transform: uppercase;
-      letter-spacing: 1.5px;
-      font-weight: 800;
+      letter-spacing: 1px;
+      color: var(--text-main);
     }
+
 
     /* PARAGRAFO */
     .container {
