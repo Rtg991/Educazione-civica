@@ -253,55 +253,38 @@
 </footer>
 
 <script>
-  document.addEventListener('DOMContentLoaded', () => {
-    const cylinder = document.getElementById('cylinder');
-    
-    // Dati per i pannelli (Icone ed Etichette)
-    const energyTypes = [
-      { icon: '☀️', label: 'Solar' },
-      { icon: '💨', label: 'Wind' },
-      { icon: '💧', label: 'Hydropower' },
-      { icon: '🔥', label: 'Geothermal' },
-      { icon: '🌱', label: 'Biomass' },
-      { icon: '🔋', label: 'Storage' }
-    ];
-
-    const total = energyTypes.length;
-    const angleStep = 360 / total;
-
-    // Creazione delle card
-    energyTypes.forEach((data, i) => {
-      const card = document.createElement('div');
-      card.className = 'cylinder-card';
-      card.innerHTML = `<div class="icon">${data.icon}</div><h4>${data.label}</h4>`;
-      cylinder.appendChild(card);
-    });
-
+const cylinder = document.getElementById('cylinder');
+    // Selezioniamo le card che contengono le immagini già presenti nell'HTML
     const cards = document.querySelectorAll('.cylinder-card');
+    const totalCards = cards.length;
+    const angleStep = 360 / totalCards;
+    
     let currentAngle = 0;
 
     function animate() {
-      currentAngle += 0.4; // Velocità di rotazione
-      cards.forEach((card, i) => {
-        const cardAngle = i * angleStep + currentAngle;
-        // Posizionamento nel cerchio 3D
-        card.style.transform = `rotateY(${cardAngle}deg) translateZ(380px)`;
-        
-        // Effetto dissolvenza per le card sul retro (migliora il realismo)
-        const normalizedAngle = (cardAngle % 360 + 360) % 360;
-        if (normalizedAngle > 90 && normalizedAngle < 270) {
-          card.style.opacity = "0.2";
-          card.style.pointerEvents = "none";
-        } else {
-          card.style.opacity = "1";
-          card.style.pointerEvents = "all";
-        }
-      });
-      requestAnimationFrame(animate);
+        currentAngle -= 0.35; // Velocità di rotazione
+        cards.forEach((card, i) => {
+            const cardAngle = (i * angleStep) + currentAngle;
+            
+            // Applichiamo la trasformazione 3D
+            // translateZ definisce il raggio del cilindro
+            card.style.transform = `rotateY(${cardAngle}deg) translateZ(350px)`;
+            
+            // Gestione opacità per nascondere le immagini sul retro
+            const normalizedAngle = (cardAngle % 360 + 360) % 360;
+            if (normalizedAngle > 90 && normalizedAngle < 270) {
+                card.style.opacity = "0.1";
+                card.style.pointerEvents = "none"; // Impedisce il click su quelle dietro
+            } else {
+                card.style.opacity = "1";
+                card.style.pointerEvents = "auto";
+            }
+        });
+        requestAnimationFrame(animate);
     }
 
+    // Avvia l'animazione
     animate();
-  });
 </script>
 
 </body>
